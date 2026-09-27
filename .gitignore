@@ -1,0 +1,18 @@
+# secrets — created on the server only
+config.php
+
+# local tooling / output
+node_modules
+temporary screenshots/
+.DS_Store
+
+# sources not needed in the repo (large or third-party)
+desktop.png
+Фото/
+
+# notes from other projects
+DEPLOY.md
+TELEGRAM_SETUP.md
+GEMINI_IMAGE_GENERATION.md
+SKILL.md
+SKILL canvas.md
