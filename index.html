@@ -338,7 +338,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (min-width:640px){.sites ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1200px){.sites ul{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .sites li{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--s-3);row-gap:var(--s-2);align-items:center;padding:var(--s-4);border-radius:var(--r-md);background:var(--bg-3);border:1px solid var(--line);box-shadow:0 1px 2px rgba(0,0,0,.25),0 10px 22px -16px rgba(0,0,0,.6)}
-.sites li .icon{flex:none;width:22px;height:22px;color:var(--gold)}
+.sites li .icon{flex:none;align-self:start;width:20px;height:20px;margin-top:1px;color:var(--gold)}
 .sites li b{display:block;color:var(--title);font-weight:600;font-size:16px;line-height:1.3}
 .sites li span{display:block;font-size:14px;line-height:1.4}
 .sites li em{grid-column:2;justify-self:start;flex:none;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line-2);color:var(--silver)}
@@ -510,7 +510,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .footer ul a{display:inline-flex;align-items:center;gap:var(--s-2);transition:color .2s,transform .35s var(--ease-spring)}
 .footer ul a:hover{color:var(--gold-hi);transform:translateX(2px)}
 .footer ul a:active{opacity:.7}
-.footer ul .icon{width:18px;height:18px;color:var(--gold)}
+.footer ul .icon{flex:none;width:18px;height:18px;color:var(--gold)}
+.footer ul li{display:flex;align-items:flex-start;gap:var(--s-2)}
+.footer ul li > .icon{margin-top:4px}
 .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s-3);margin-top:var(--s-8);padding-top:var(--s-5);border-top:1px solid var(--line);font-size:14px}
 
 /* mobile action bar */
@@ -713,7 +715,7 @@ p,li,label,address,.lead{text-wrap:pretty}
       </div>
       <div class="btn-row">
         <a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-        <a class="btn btn--outline" href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a>
+        <a class="btn btn--outline" href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 8.6v.9a5.5 5.5 0 0 0 5.5 5.5h.9"/></svg>WhatsApp</a>
       </div>
     </div>
     <div class="cards">
@@ -721,13 +723,13 @@ p,li,label,address,.lead{text-wrap:pretty}
         <div class="media"><img src="assets/img/svc-turnkey-800.webp" srcset="assets/img/svc-turnkey-800.webp 800w, assets/img/svc-turnkey-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Komplettsanierung" loading="lazy" decoding="async"></div>
         <h3>Komplettsanierung</h3>
         <p>Vom Rückbau bis zur Endreinigung – aus einer Hand.</p>
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></span>
+        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/></svg></span>
       </article>
       <article class="card reveal d1">
         <div class="media"><img src="assets/img/svc-bath-800.webp" srcset="assets/img/svc-bath-800.webp 800w, assets/img/svc-bath-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Badsanierung" loading="lazy" decoding="async"></div>
         <h3>Badsanierung</h3>
         <p>Leitungen, Fliesen, Sanitär und Armaturen.</p>
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.68 3 4 3.68 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="m10 5-2 2"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M17 19v2"/></svg></span>
+        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4 8 6"/><path d="M17 19v2"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M9 5 7.621 3.621A2.121 2.121 0 0 0 4 5v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg></span>
       </article>
       <article class="card reveal d2">
         <div class="media"><img src="assets/img/svc-electric-800.webp" srcset="assets/img/svc-electric-800.webp 800w, assets/img/svc-electric-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Elektroinstallation" loading="lazy" decoding="async"></div>
@@ -763,7 +765,7 @@ p,li,label,address,.lead{text-wrap:pretty}
         <div class="media"><img src="assets/img/svc-demolition-800.webp" srcset="assets/img/svc-demolition-800.webp 800w, assets/img/svc-demolition-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Abbrucharbeiten" loading="lazy" decoding="async"></div>
         <h3>Abbrucharbeiten</h3>
         <p>Rückbau von Böden und Wänden, inkl. Entsorgung.</p>
-        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-8.37 8.37a2.12 2.12 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.91-1.91A2 2 0 0 1 19 8.17V7l-2.26-1.13A6 6 0 0 0 14.1 5H13l.5 1.5L12 9"/></svg></span>
+        <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></svg></span>
       </article>
       <article class="card reveal d2">
         <div class="media"><img src="assets/img/svc-rental-800.webp" srcset="assets/img/svc-rental-800.webp 800w, assets/img/svc-rental-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Renovierung nach Auszug" loading="lazy" decoding="async"></div>
@@ -886,7 +888,7 @@ p,li,label,address,.lead{text-wrap:pretty}
         </ol>
         <div class="btn-row reveal">
           <a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-          <a class="btn btn--outline" href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a>
+          <a class="btn btn--outline" href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 8.6v.9a5.5 5.5 0 0 0 5.5 5.5h.9"/></svg>WhatsApp</a>
         </div>
       </div>
     </div>
@@ -976,7 +978,7 @@ p,li,label,address,.lead{text-wrap:pretty}
           <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Kontakt</h3>
           <ul>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Telefon: <a href="tel:+4915213405131">+49 1521 3405131</a></span></li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg><span>WhatsApp: <a href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener">+49 1521 3405131</a></span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 8.6v.9a5.5 5.5 0 0 0 5.5 5.5h.9"/></svg><span>WhatsApp: <a href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener">+49 1521 3405131</a></span></li>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Diensthandy: <a href="tel:+491627928876">+49 162 7928876</a></span></li>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span><a href="mailto:janos.barna.bau@gmail.com">janos.barna.bau@gmail.com</a></span></li>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><address>János Barna BAU, Martin‑Luther‑Straße 21, 38226 Salzgitter</address></li>
@@ -1005,9 +1007,9 @@ p,li,label,address,.lead{text-wrap:pretty}
           <ul>
             <li><a href="tel:+4915213405131"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+49 1521 3405131</a></li>
             <li><a href="tel:+491627928876"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+49 162 7928876 · Dienst</a></li>
-            <li><a href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a></li>
+            <li><a href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 8.6v.9a5.5 5.5 0 0 0 5.5 5.5h.9"/></svg>WhatsApp</a></li>
             <li><a href="mailto:janos.barna.bau@gmail.com"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>janos.barna.bau@gmail.com</a></li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span> Martin‑Luther‑Straße 21, 38226 Salzgitter</span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Martin‑Luther‑Straße 21, 38226 Salzgitter</span></li>
           </ul>
         </div>
       </div>
@@ -1029,7 +1031,7 @@ p,li,label,address,.lead{text-wrap:pretty}
 
 <nav class="action-bar" aria-label="Schnellkontakt">
   <a href="tel:+4915213405131"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
-  <a href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a>
+  <a href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 8.6v.9a5.5 5.5 0 0 0 5.5 5.5h.9"/></svg>WhatsApp</a>
 </nav>
 
 <script>

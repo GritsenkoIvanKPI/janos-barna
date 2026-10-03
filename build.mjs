@@ -64,20 +64,20 @@ const EMAIL = 'janos.barna.bau@gmail.com';
 /* ---------------- icons (24px line set) ---------------- */
 const ICONS = {
   arrow: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
-  key: '<circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/>',
-  bath: '<path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.68 3 4 3.68 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="m10 5-2 2"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M17 19v2"/>',
+  key: '<circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/>',
+  bath: '<path d="M10 4 8 6"/><path d="M17 19v2"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M9 5 7.621 3.621A2.121 2.121 0 0 0 4 5v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/>',
   bolt: '<path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>',
   roller: '<rect x="2" y="2" width="16" height="6" rx="2"/><path d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="8" y="16" width="4" height="6" rx="1"/>',
   layers: '<path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>',
   tiles: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/>',
   drop: '<path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/>',
-  hammer: '<path d="m15 12-8.37 8.37a2.12 2.12 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.91-1.91A2 2 0 0 1 19 8.17V7l-2.26-1.13A6 6 0 0 0 14.1 5H13l.5 1.5L12 9"/>',
+  hammer: '<path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/>',
   home: '<path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 21v-6h4v6"/>',
   phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
   mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
   pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
   chat: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
-  whatsapp: '<path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/>',
+  whatsapp: '<path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 8.6v.9a5.5 5.5 0 0 0 5.5 5.5h.9"/>',
   receipt: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
   clock: '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
   usercheck: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/>',
@@ -410,7 +410,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (min-width:640px){.sites ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (min-width:1200px){.sites ul{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .sites li{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--s-3);row-gap:var(--s-2);align-items:center;padding:var(--s-4);border-radius:var(--r-md);background:var(--bg-3);border:1px solid var(--line);box-shadow:0 1px 2px rgba(0,0,0,.25),0 10px 22px -16px rgba(0,0,0,.6)}
-.sites li .icon{flex:none;width:22px;height:22px;color:var(--gold)}
+.sites li .icon{flex:none;align-self:start;width:20px;height:20px;margin-top:1px;color:var(--gold)}
 .sites li b{display:block;color:var(--title);font-weight:600;font-size:16px;line-height:1.3}
 .sites li span{display:block;font-size:14px;line-height:1.4}
 .sites li em{grid-column:2;justify-self:start;flex:none;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line-2);color:var(--silver)}
@@ -582,7 +582,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .footer ul a{display:inline-flex;align-items:center;gap:var(--s-2);transition:color .2s,transform .35s var(--ease-spring)}
 .footer ul a:hover{color:var(--gold-hi);transform:translateX(2px)}
 .footer ul a:active{opacity:.7}
-.footer ul .icon{width:18px;height:18px;color:var(--gold)}
+.footer ul .icon{flex:none;width:18px;height:18px;color:var(--gold)}
+.footer ul li{display:flex;align-items:flex-start;gap:var(--s-2)}
+.footer ul li > .icon{margin-top:4px}
 .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--s-3);margin-top:var(--s-8);padding-top:var(--s-5);border-top:1px solid var(--line);font-size:14px}
 
 /* mobile action bar */
@@ -1157,7 +1159,7 @@ ${seoLinks}
             <li><a href="${PHONE2_HREF}">${icon('phone')}${keep(PHONE2)}${NB}· ${t('servizio', 'Dienst')}</a></li>
             <li><a href="${WA_HREF}" target="_blank" rel="noopener">${icon('whatsapp')}WhatsApp</a></li>
             <li><a href="mailto:${EMAIL}">${icon('mail')}${EMAIL}</a></li>
-            <li>${icon('pin', 'icon')}<span> Martin\u2011Luther\u2011Straße${NB}21, 38226${NB}Salzgitter</span></li>
+            <li>${icon('pin', 'icon')}<span>Martin\u2011Luther\u2011Straße${NB}21, 38226${NB}Salzgitter</span></li>
           </ul>
         </div>
       </div>
