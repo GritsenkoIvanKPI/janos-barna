@@ -1,23 +1,23 @@
 <!doctype html>
-<html lang="it">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ristrutturazioni chiavi in mano di appartamenti e case | János Barna BAU</title>
-<meta name="description" content="Ristrutturazione completa di appartamenti e case: demolizione, impianti elettrici e idraulici, piastrelle, tinteggiatura, laminato. Un unico referente, preventivo gratuito. Salzgitter, Braunschweig, Wolfsburg, Hannover.">
+<title>Wohnungs- und Haussanierung schlüsselfertig | János Barna BAU</title>
+<meta name="description" content="Komplettsanierung von Wohnungen und Häusern: Rückbau, Elektrik, Sanitär, Fliesen, Malerarbeiten, Laminat. Alles aus einer Hand, kostenloses Angebot. Salzgitter, Braunschweig, Wolfsburg, Hannover.">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ristrutturazioni chiavi in mano di appartamenti e case | János Barna BAU">
-<meta property="og:description" content="Ristrutturazione completa di appartamenti e case: demolizione, impianti elettrici e idraulici, piastrelle, tinteggiatura, laminato. Un unico referente, preventivo gratuito. Salzgitter, Braunschweig, Wolfsburg, Hannover.">
+<meta property="og:title" content="Wohnungs- und Haussanierung schlüsselfertig | János Barna BAU">
+<meta property="og:description" content="Komplettsanierung von Wohnungen und Häusern: Rückbau, Elektrik, Sanitär, Fliesen, Malerarbeiten, Laminat. Alles aus einer Hand, kostenloses Angebot. Salzgitter, Braunschweig, Wolfsburg, Hannover.">
 <meta property="og:image" content="assets/logo/og.jpg">
-<meta property="og:locale" content="it_IT">
+<meta property="og:locale" content="de_DE">
 <meta name="theme-color" content="#161615">
 <link rel="icon" href="assets/logo/favicon-64.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/img/hero-1600.webp" imagesrcset="assets/img/hero-800.webp 800w, assets/img/hero-1600.webp 1600w" imagesizes="100vw">
+<link rel="preload" as="image" href="assets/img/hero-800.webp" imagesrcset="assets/img/hero-800.webp 800w, assets/img/hero-1376.webp 1376w" imagesizes="100vw">
 <style>
 :root{
   /* palette sampled from the company sign: charcoal plate, champagne gold, brushed silver */
@@ -42,7 +42,7 @@
 @media (min-width:1200px){:root{--section:160px;--gutter:100px;--edge:32px;--header:110px}}
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:24px;background:var(--bg)}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--header) + 16px);background:var(--bg)}
 body{margin:0;background:radial-gradient(1200px 700px at 85% -10%,rgba(200,174,122,.07),rgba(200,174,122,0) 70%),radial-gradient(900px 600px at -10% 40%,rgba(192,194,195,.04),rgba(192,194,195,0) 70%),var(--bg);
   color:var(--text);font-family:Onest,system-ui,sans-serif;font-size:16px;line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;background-image:var(--grain);opacity:.045;pointer-events:none;z-index:100;mix-blend-mode:overlay}
@@ -71,8 +71,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* media treatment */
 .media{position:relative;overflow:hidden;background:var(--bg-3)}
-.media img,.media video{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.03)}
-.media::before{content:"";position:absolute;inset:0;background:#3a2f1c;mix-blend-mode:multiply;opacity:.22;z-index:1;pointer-events:none}
+.media img,.media video{width:100%;height:100%;object-fit:cover;filter:saturate(.94) contrast(1.02)}
+.media::before{content:"";position:absolute;inset:0;background:#3a2f1c;mix-blend-mode:multiply;opacity:.1;z-index:1;pointer-events:none}
 .media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,9,.6),rgba(10,10,9,0) 55%);z-index:1;pointer-events:none;opacity:.5}
 .media--dark::after{opacity:1}
 
@@ -124,7 +124,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 
 /* header */
-.header{position:relative;z-index:50}
+.header{position:sticky;top:0;z-index:50}
+.header::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(22,22,21,.78);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line);opacity:0;transition:opacity .35s var(--ease-out)}
+.scrolled .header::before{opacity:1}
+@media (max-height:520px){.header{position:relative}}
 .header .container{display:flex;align-items:center;justify-content:space-between;height:var(--header);gap:var(--s-5)}
 .nav{display:none}
 .nav a{position:relative;white-space:nowrap;font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);padding:var(--s-2) 0;transition:color .2s}
@@ -174,7 +177,7 @@ button,input,select,textarea{font:inherit;color:inherit}
   height:calc(100vh - var(--header) - var(--s-3));height:calc(100svh - var(--header) - var(--s-3));min-height:460px}
 .hero-media{position:relative;flex:1 1 auto;min-height:0;border-radius:var(--r-lg)}
 .hero-media img{object-position:50% 62%}
-.hero-media::after{background:linear-gradient(to top,rgba(12,12,11,.88),rgba(12,12,11,.25) 60%,rgba(12,12,11,.1)),linear-gradient(to right,rgba(12,12,11,.45),rgba(12,12,11,0) 60%)}
+.hero-media::after{background:linear-gradient(to top,rgba(12,12,11,.86),rgba(12,12,11,.12) 58%,rgba(12,12,11,0)),linear-gradient(to right,rgba(12,12,11,.4),rgba(12,12,11,0) 55%)}
 .hero-content{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:var(--s-5);max-width:800px}
 @media (min-width:768px){.hero-content{padding:var(--s-7)}}
 .hero h1{font-size:min(var(--fs-h1),7.2vh);font-size:min(var(--fs-h1),7.2svh);line-height:1.1;color:var(--title);letter-spacing:-.01em;text-shadow:0 2px 30px rgba(0,0,0,.35)}
@@ -207,6 +210,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (max-width:1359px){.book > p{display:none}}
 @media (max-width:1359px) and (max-height:820px){.hero-content .btn{display:none}}
 @media (max-height:560px){.hero{min-height:360px}}
+@media (max-height:760px){.hero-tag{display:none}}
 @media (max-height:700px){.hero-content p{display:none}.quick-note{font-size:12px;line-height:1.4;margin-top:var(--s-2)}.quick{margin-top:var(--s-3)}}
 @media (min-width:1360px) and (max-height:760px){.book{padding-top:36px}.book > p{display:none}}
 /* short landscape phones: photo and quick-quote side by side */
@@ -220,6 +224,43 @@ button,input,select,textarea{font:inherit;color:inherit}
 .form-status{margin-top:var(--s-3);font-size:15px;font-weight:600}
 .form-status[data-state="ok"]{color:#8FD19E}
 .form-status[data-state="error"]{color:#F09A8E}
+
+/* trust bar */
+.trust{list-style:none;margin:var(--s-5) 0 0;padding:var(--s-4) 0;display:grid;gap:var(--s-3) var(--s-5);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media (min-width:640px){.trust{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1360px){.trust{grid-template-columns:auto auto auto auto;justify-content:space-between}}
+.trust li{display:flex;align-items:center;gap:var(--s-3);font-size:14px;font-weight:500;letter-spacing:.02em;color:var(--silver);line-height:1.4}
+.trust li b{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1;background:var(--metal-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.trust .icon{flex:none;width:18px;height:18px;color:var(--gold)}
+
+/* turnkey chain */
+.turnkey{display:grid;gap:var(--s-5);margin-top:var(--s-7);align-items:stretch}
+@media (min-width:560px){.turnkey{grid-template-columns:repeat(2,minmax(0,1fr))}.stages{grid-column:1/-1;grid-row:2}}
+@media (min-width:1360px){.turnkey{grid-template-columns:280px minmax(0,1fr) 280px;margin-top:var(--s-8)}.stages{grid-column:auto;grid-row:auto}}
+.turnkey-img{position:relative;margin:0;border-radius:var(--r-lg);aspect-ratio:16/10;box-shadow:var(--sh-float)}
+@media (min-width:560px){.turnkey-img{aspect-ratio:4/3}}
+@media (min-width:1360px){.turnkey-img{aspect-ratio:auto;min-height:420px}}
+.turnkey-img img{position:absolute;inset:0}
+@media (max-width:1359px){.turnkey-img img{object-position:30% 22%}}
+.hero-tag{display:flex;margin-bottom:var(--s-4)}
+.turnkey-img.media::after{opacity:1}
+.turnkey-img figcaption{position:absolute;z-index:2;left:var(--s-5);right:var(--s-5);bottom:var(--s-5)}
+.turnkey-img figcaption span{display:block;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-text)}
+.turnkey-img figcaption b{display:block;margin-top:var(--s-1);font-family:var(--serif);font-weight:600;font-size:22px;color:var(--title)}
+.stages{list-style:none;margin:0;padding:0;display:grid;gap:var(--s-3);align-content:center}
+@media (min-width:700px){.stages{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px) and (max-width:1359px){.stages{grid-template-columns:repeat(4,minmax(0,1fr))}.stage{flex-direction:column;align-items:flex-start;gap:var(--s-2)}}
+.stage{display:flex;align-items:center;gap:var(--s-4);padding:var(--s-4);border-radius:var(--r-md);background:var(--bg-2);border:1px solid var(--line);transition:transform .45s var(--ease-spring),border-color .3s}
+.stage:hover{transform:translateY(-3px);border-color:rgba(200,174,122,.4)}
+.stage-num{flex:none;font-family:var(--serif);font-weight:600;font-size:26px;line-height:1;min-width:1.5em;background:var(--metal-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stage > div{min-width:0}
+.stage b{display:block;color:var(--title);font-weight:600;font-size:16px;line-height:1.3}
+.stage div span{display:block;font-size:14px;line-height:1.4}
+.stage--final{background:radial-gradient(120% 140% at 0% 0%,rgba(200,174,122,.2),rgba(200,174,122,0) 70%),var(--bg-2);border-color:rgba(200,174,122,.45)}
+.turnkey-facts{list-style:none;margin:var(--s-6) 0 0;padding:0;display:grid;gap:var(--s-3)}
+@media (min-width:1024px){.turnkey-facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-5)}}
+.turnkey-facts li{display:flex;align-items:center;gap:var(--s-3);padding:var(--s-4) var(--s-5);border-radius:var(--r-md);border:1px solid var(--line-2);color:var(--title);font-size:15px;font-weight:500;line-height:1.35}
+.turnkey-facts .icon{flex:none;width:20px;height:20px;color:var(--gold)}
 
 /* section heads */
 .head-split{display:grid;gap:var(--s-6);padding-bottom:var(--s-7);border-bottom:1px solid var(--line)}
@@ -245,22 +286,50 @@ button,input,select,textarea{font:inherit;color:inherit}
 .card .icon-chip{display:inline-grid;place-items:center;margin-top:auto;width:46px;height:46px;border-radius:50%;background:rgba(200,174,122,.1);border:1px solid rgba(200,174,122,.28);color:var(--gold);transition:transform .45s var(--ease-spring)}
 .card:hover .icon-chip{transform:rotate(-8deg) scale(1.08)}
 
-/* portfolio */
-.works{display:grid;gap:var(--s-6);margin-top:var(--s-7)}
-@media (min-width:640px){.works{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1024px){
-  .works{grid-template-columns:repeat(3,1fr);gap:var(--s-7);margin-top:var(--s-8)}
-}
-.work{position:relative;margin:0;aspect-ratio:4/5;border-radius:var(--r-md);box-shadow:var(--sh-float)}
-.work.media::after{opacity:1}
-.work img,.work video{transition:transform .9s var(--ease-out)}
-.work:hover img,.work:hover video{transform:scale(1.045)}
-.work figcaption{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:var(--s-5)}
-.work figcaption b{display:block;color:var(--title);font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.25}
-.work figcaption span{display:block;margin-top:var(--s-1);color:var(--gold-text);font-size:14px;letter-spacing:.04em}
-.work .live{position:absolute;z-index:2;top:var(--s-4);left:var(--s-4);display:inline-flex;align-items:center;gap:var(--s-2);padding:6px 12px;border-radius:999px;background:rgba(22,22,21,.72);border:1px solid var(--line-2);color:var(--title);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(8px)}
-.work .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 1.8s var(--ease-out) infinite}
+/* portfolio: bento gallery of real project photos + lightbox */
+.works{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;grid-auto-flow:dense;gap:var(--s-3);margin-top:var(--s-7)}
+@media (min-width:640px){.works{grid-auto-rows:220px;gap:var(--s-4)}}
+@media (min-width:1024px){.works{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:230px;gap:var(--s-5);margin-top:var(--s-8)}}
+.work{position:relative;display:block;border-radius:var(--r-md);box-shadow:var(--sh-float);cursor:zoom-in;container-type:inline-size}
+.work--tall{grid-row:span 2}
+.work--wide{grid-column:span 2}
+.work--big{grid-column:span 2;grid-row:span 2}
+.work.media::after{opacity:.85;background:linear-gradient(to top,rgba(10,10,9,.85),rgba(10,10,9,0) 50%)}
+.work img{transition:transform .9s var(--ease-out)}
+.work:hover img,.work:focus-visible img{transform:scale(1.05)}
+.work:active img{transform:scale(1.02)}
+.work-cap{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:var(--s-4)}
+@media (min-width:1024px){.work-cap{padding:var(--s-5)}}
+.work-cap b{display:block;color:var(--title);font-family:var(--serif);font-size:clamp(12px,5.6cqi,19px);font-weight:600;line-height:1.25;white-space:nowrap}
+.work-cap span{display:block;margin-top:2px;color:var(--gold-text);font-size:clamp(11px,4.6cqi,14px);letter-spacing:.03em;white-space:nowrap}
+.work--wide .work-cap b,.work--big .work-cap b{font-size:clamp(14px,4.4cqi,22px)}
+.work--wide .work-cap span,.work--big .work-cap span{font-size:clamp(11px,3.2cqi,14px)}
+@container (max-width:215px){.work-cap{display:none}.work.media::after{opacity:.25}}
+.work-zoom{position:absolute;z-index:2;top:var(--s-4);right:var(--s-4);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(22,22,21,.6);border:1px solid var(--line-2);color:var(--gold-hi);backdrop-filter:blur(8px);opacity:0;transform:scale(.7);transition:opacity .3s var(--ease-out),transform .45s var(--ease-spring)}
+.work-zoom .icon{width:18px;height:18px}
+.work:hover .work-zoom,.work:focus-visible .work-zoom{opacity:1;transform:none}
+.work .live{position:absolute;z-index:2;top:var(--s-3);left:var(--s-3);display:inline-flex;align-items:center;gap:var(--s-2);padding:5px 10px;border-radius:999px;background:rgba(22,22,21,.72);border:1px solid var(--line-2);color:var(--title);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(8px)}
+.work .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.8s var(--ease-out) infinite}
 @keyframes pulse{0%{transform:scale(.8);opacity:1}70%{transform:scale(1.5);opacity:.35}100%{transform:scale(.8);opacity:1}}
+.lightbox{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(10,10,9,.94);color:var(--title)}
+.lightbox::backdrop{background:rgba(10,10,9,.6)}
+.lightbox:not([open]){display:none}
+.lightbox-stage{position:absolute;inset:64px var(--s-4) 76px;display:grid;place-items:center}
+@media (min-width:768px){.lightbox-stage{inset:72px 96px 84px}}
+.lightbox-stage img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:var(--r-sm);box-shadow:0 30px 80px -20px rgba(0,0,0,.9);animation:lb-in .45s var(--ease-out)}
+@keyframes lb-in{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.lightbox-bar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:var(--s-4);height:76px;padding:0 var(--s-4);text-align:center}
+.lightbox-title{font-family:var(--serif);font-size:17px}
+.lightbox-count{font-size:13px;letter-spacing:.14em;color:var(--gold-text)}
+.lightbox button{position:absolute;z-index:2;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:rgba(30,30,29,.8);color:var(--title);cursor:pointer;transition:transform .35s var(--ease-spring),border-color .2s}
+.lightbox button:hover{border-color:var(--gold);transform:scale(1.06)}
+.lightbox button:active{transform:scale(.94)}
+.lightbox button .icon{width:22px;height:22px}
+.lb-close{top:var(--s-3);right:var(--s-3)}
+.lb-prev,.lb-next{bottom:14px}
+.lb-prev{left:var(--s-3)}.lb-next{right:var(--s-3)}
+.lb-prev .icon{transform:rotate(180deg)}
+@media (min-width:768px){.lb-prev,.lb-next{top:50%;bottom:auto;margin-top:-24px}.lb-prev{left:var(--s-5)}.lb-next{right:var(--s-5)}.lb-close{top:var(--s-4);right:var(--s-5)}}
 .sites{margin-top:var(--s-8);padding:var(--s-5) var(--s-4);border-radius:var(--r-lg);background:var(--bg-2);border:1px solid var(--line)}
 @media (min-width:768px){.sites{padding:var(--s-7)}}
 .sites h3{font-size:22px}
@@ -334,6 +403,10 @@ button,input,select,textarea{font:inherit;color:inherit}
   transition:transform .45s var(--ease-spring),border-color .3s}
 @media (min-width:768px){.step{padding:var(--s-5) var(--s-6)}}
 .step:hover{transform:translateX(6px);border-color:rgba(200,174,122,.4)}
+.step-thumb{display:none;margin:0;width:96px;height:96px;border-radius:var(--r-sm);flex:none}
+@media (min-width:640px){.step{grid-template-columns:auto minmax(0,1fr) auto}.step-thumb{display:block}}
+.step-thumb img{transition:transform .9s var(--ease-out)}
+.step:hover .step-thumb img{transform:scale(1.06)}
 .step-num{font-family:var(--serif);font-weight:600;font-size:clamp(40px,4vw,56px);line-height:1;background:var(--metal-gold);-webkit-background-clip:text;background-clip:text;color:transparent;min-width:1.4em}
 .step h3{font-size:clamp(20px,1.8vw,24px);line-height:1.25}
 .step p{margin-top:var(--s-1);font-size:16px;line-height:1.55}
@@ -358,7 +431,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 .who div span{display:block;font-size:16px;line-height:1.3}
 
 /* faq */
-.faq{max-width:900px;margin:var(--s-7) auto 0;border-top:1px solid var(--line)}
+.faq-wrap{display:grid;gap:var(--s-6);margin-top:var(--s-7);align-items:start}
+@media (min-width:1024px){.faq-wrap{grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:var(--s-8)}}
+.faq-media{margin:0;border-radius:var(--r-lg);aspect-ratio:16/9;box-shadow:var(--sh-float)}
+.faq-media img{object-position:50% 75%}
+@media (min-width:1024px){.faq-media{aspect-ratio:3/4;position:sticky;top:var(--s-5)}.faq-media img{object-position:50% 50%}}
+.faq{border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);padding:var(--s-5) 0;cursor:pointer;list-style:none;color:var(--title);font-weight:500;font-size:clamp(17px,1.5vw,20px);line-height:1.4;border-radius:var(--r-sm);transition:opacity .2s}
 .faq summary::-webkit-details-marker{display:none}
@@ -452,8 +530,6 @@ h1,h2,h3,h4,q,summary,figcaption,.work figcaption b,.stat span,.tag{text-wrap:ba
 p,li,label,address,.lead{text-wrap:pretty}
 
 /* titles inside cards size themselves to the card */
-.work{container-type:inline-size}
-.work figcaption b{font-size:clamp(14px,6cqi,21px)}
 .step > div{container-type:inline-size;min-width:0}
 .step h3{font-size:clamp(14px,6.8cqi,24px)}
 .feature > div{flex:1 1 0;container-type:inline-size;min-width:0}
@@ -504,6 +580,7 @@ p,li,label,address,.lead{text-wrap:pretty}
 .hero-content > *{animation:rise 1s var(--ease-out) both}
 .hero-content > :nth-child(2){animation-delay:.12s}
 .hero-content > :nth-child(3){animation-delay:.24s}
+.hero-content > :nth-child(4){animation-delay:.36s}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -511,7 +588,7 @@ p,li,label,address,.lead{text-wrap:pretty}
   .js .reveal{opacity:1;transform:none}
 }
 </style>
-<script type="application/ld+json">[{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"János Barna BAU","telephone":"+49 1521 3405131","email":"janos.barna.bau@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Martin-Luther-Straße 21","postalCode":"38226","addressLocality":"Salzgitter","addressCountry":"DE"},"areaServed":["Salzgitter","Braunschweig","Wolfsburg","Hannover","Niedersachsen"]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quanto costa ristrutturare un appartamento?","acceptedAnswer":{"@type":"Answer","text":"Il costo dipende dalla superficie, dallo stato dell’immobile e dalla quantità di lavori. Dopo il sopralluogo prepariamo un preventivo dettagliato e ti proponiamo la soluzione migliore."}},{"@type":"Question","name":"Fate ristrutturazioni chiavi in mano?","acceptedAnswer":{"@type":"Answer","text":"Sì. Eseguiamo l’intero ciclo di lavori: demolizione, impianto elettrico, idraulica, piastrelle, carta da parati, tinteggiatura, laminato, sostituzione della ferramenta delle porte e pulizia finale."}},{"@type":"Question","name":"In quali città lavorate?","acceptedAnswer":{"@type":"Answer","text":"La nostra zona principale è Salzgitter, Braunschweig, Wolfsburg, Hannover e tutta la Bassa Sassonia. Su accordo lavoriamo anche in altre regioni della Germania."}},{"@type":"Question","name":"Vi occupate dell’acquisto dei materiali?","acceptedAnswer":{"@type":"Answer","text":"Sì. Possiamo occuparci della scelta, dell’acquisto e della consegna dei materiali e di tutta la logistica."}},{"@type":"Question","name":"Quanto dura una ristrutturazione?","acceptedAnswer":{"@type":"Answer","text":"Dipende dalla superficie e dalla complessità dei lavori. I piccoli interventi si completano in pochi giorni; una ristrutturazione completa di un appartamento richiede di solito alcune settimane."}},{"@type":"Question","name":"Il preventivo è gratuito?","acceptedAnswer":{"@type":"Answer","text":"Sì. Dopo il sopralluogo o dopo aver ricevuto le informazioni necessarie ti prepariamo un’offerta personalizzata."}},{"@type":"Question","name":"Offrite una garanzia sui lavori?","acceptedAnswer":{"@type":"Answer","text":"Sì. Rispondiamo della qualità dei lavori eseguiti secondo le norme vigenti e gli accordi presi con il cliente."}},{"@type":"Question","name":"Lavorate con società immobiliari e amministratori?","acceptedAnswer":{"@type":"Answer","text":"Sì. Abbiamo esperienza con società immobiliari, investitori e proprietari privati."}},{"@type":"Question","name":"Eseguite anche singoli lavori?","acceptedAnswer":{"@type":"Answer","text":"Sì. Puoi richiedere la ristrutturazione completa oppure singoli servizi: impianto elettrico, idraulica, piastrelle, tinteggiatura, carta da parati o posa del laminato."}},{"@type":"Question","name":"Come si richiede una ristrutturazione?","acceptedAnswer":{"@type":"Answer","text":"Contattaci per telefono, WhatsApp o e‑mail. Parliamo del progetto, fissiamo un sopralluogo e prepariamo l’offerta."}}]}]</script>
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"János Barna BAU","telephone":"+49 1521 3405131","email":"janos.barna.bau@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Martin-Luther-Straße 21","postalCode":"38226","addressLocality":"Salzgitter","addressCountry":"DE"},"areaServed":["Salzgitter","Braunschweig","Wolfsburg","Hannover","Niedersachsen"]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Was kostet eine Renovierung?","acceptedAnswer":{"@type":"Answer","text":"Die Kosten hängen von der Wohnfläche, dem Zustand der Räume und dem Umfang der Arbeiten ab. Nach der Besichtigung erstellen wir ein detailliertes Angebot und schlagen Ihnen die passende Lösung vor."}},{"@type":"Question","name":"Bieten Sie Renovierungen schlüsselfertig an?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir übernehmen alle Arbeiten: Rückbau, Elektrik, Sanitär, Fliesen, Tapezieren, Malerarbeiten, Laminat, Austausch der Türbeschläge und Endreinigung."}},{"@type":"Question","name":"In welchen Städten arbeiten Sie?","acceptedAnswer":{"@type":"Answer","text":"Wir arbeiten hauptsächlich in Salzgitter, Braunschweig, Wolfsburg, Hannover und in ganz Niedersachsen. Nach Absprache arbeiten wir auch in anderen Regionen Deutschlands."}},{"@type":"Question","name":"Kümmern Sie sich um den Materialeinkauf?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir übernehmen Auswahl, Einkauf und Lieferung der Materialien sowie die gesamte Logistik."}},{"@type":"Question","name":"Wie lange dauert eine Renovierung?","acceptedAnswer":{"@type":"Answer","text":"Das hängt von der Fläche und vom Umfang der Arbeiten ab. Kleinere Aufträge sind oft in wenigen Tagen erledigt, eine Komplettsanierung einer Wohnung dauert in der Regel einige Wochen."}},{"@type":"Question","name":"Ist das Angebot kostenlos?","acceptedAnswer":{"@type":"Answer","text":"Ja. Nach der Besichtigung oder nach Erhalt der nötigen Informationen erstellen wir Ihnen ein individuelles Angebot."}},{"@type":"Question","name":"Gibt es eine Gewährleistung?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir stehen für die Qualität unserer Arbeit ein – nach den gesetzlichen Vorgaben und den Vereinbarungen mit dem Auftraggeber."}},{"@type":"Question","name":"Arbeiten Sie für Hausverwaltungen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir arbeiten regelmäßig für Hausverwaltungen, Wohnungsgesellschaften, Investoren und private Eigentümer."}},{"@type":"Question","name":"Übernehmen Sie auch einzelne Arbeiten?","acceptedAnswer":{"@type":"Answer","text":"Ja. Sie können eine Komplettsanierung oder einzelne Leistungen beauftragen: Elektrik, Sanitär, Fliesen, Malerarbeiten, Tapezieren oder Laminatverlegung."}},{"@type":"Question","name":"Wie beauftrage ich eine Renovierung?","acceptedAnswer":{"@type":"Answer","text":"Kontaktieren Sie uns per Telefon, WhatsApp oder E‑Mail. Wir besprechen Ihr Projekt, vereinbaren eine Besichtigung und erstellen ein Angebot."}}]}]</script>
 </head>
 <body>
 
@@ -521,30 +598,30 @@ p,li,label,address,.lead{text-wrap:pretty}
     <a class="logo" href="#top" aria-label="János Barna BAU">
       <img class="logo-emblem" src="assets/logo/emblem.webp" width="280" height="168" alt=""><img class="logo-word" src="assets/logo/wordmark.webp" width="552" height="132" alt="János Barna BAU">
     </a>
-    <nav class="nav" aria-label="Navigazione principale">
-      <a href="#servizi">Servizi</a>
-      <a href="#progetti">Progetti</a>
-      <a href="#vantaggi">Vantaggi</a>
-      <a href="#chi-siamo">Chi siamo</a>
-      <a href="#contatti">Contatti</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#projekte">Projekte</a>
+      <a href="#vorteile">Vorteile</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#kontakt">Kontakt</a>
     </nav>
     <div class="header-actions">
-      <div class="lang" aria-label="Lingua">
-        <a href="index.html" hreflang="it" lang="it" aria-current="page">IT</a>
-        <a href="de/index.html" hreflang="de" lang="de">DE</a>
+      <div class="lang" aria-label="Sprache">
+        <a href="index.html" hreflang="de" lang="de" aria-current="page">DE</a>
+        <a href="it/index.html" hreflang="it" lang="it">IT</a>
       </div>
-      <a class="btn btn--gold " href="#contatti">Preventivo gratuito<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-      <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Apri il menu">
+      <a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü öffnen">
         <svg class="icon icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg><svg class="icon icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
-      <a href="#servizi">Servizi</a>
-      <a href="#progetti">Progetti</a>
-      <a href="#vantaggi">Vantaggi</a>
-      <a href="#chi-siamo">Chi siamo</a>
-      <a href="#contatti">Contatti</a>
-      <a class="btn btn--gold " href="#contatti">Preventivo gratuito<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobiles Menü">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#projekte">Projekte</a>
+      <a href="#vorteile">Vorteile</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
     </nav>
   </div>
 </header>
@@ -554,96 +631,144 @@ p,li,label,address,.lead{text-wrap:pretty}
 <!-- HERO -->
 <section class="hero wide">
   <div class="hero-media media media--dark">
-    <img src="assets/img/hero-800.webp" srcset="assets/img/hero-800.webp 800w, assets/img/hero-1600.webp 1600w" sizes="100vw" alt="Appartamento ristrutturato con pavimento in laminato" fetchpriority="high" decoding="async">
+    <img src="assets/img/hero-800.webp" srcset="assets/img/hero-800.webp 800w, assets/img/hero-1376.webp 1376w" sizes="(min-width:1440px) 1240px, 100vw" width="800" height="447" alt="Frisch renoviertes Wohnzimmer mit Laminatboden" fetchpriority="high" decoding="async">
     <div class="hero-content">
-      <h1>La tua casa<br><em>chiavi in mano</em></h1>
-      <p>Appartamenti e case, dalla demolizione alla pulizia finale. Un unico referente, preventivi trasparenti, tempi rispettati.</p>
-      <a class="btn btn--gold " href="#contatti">Richiedi un preventivo<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+      <span class="tag hero-tag">Alles aus einer Hand</span>
+      <h1>Ihr Zuhause –<br><em>komplett saniert</em></h1>
+      <p>Vom Rückbau bis zur bezugsfertigen Wohnung: ein Betrieb, ein Ansprechpartner, ein Angebot.</p>
+      <a class="btn btn--gold " href="#kontakt">Angebot anfordern<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
     </div>
   </div>
   <div class="book">
     <span class="corner corner--tl"></span><span class="corner corner--tl b"></span>
-    <h2>Preventivo gratuito</h2>
-    <p>Lascia il tuo numero: ti richiamiamo per parlare del progetto e fissare un sopralluogo.</p>
+    <h2>Kostenloses Angebot</h2>
+    <p>Hinterlassen Sie Ihre Nummer – wir rufen zurück und vereinbaren eine Besichtigung.</p>
     <form class="js-form" data-source="hero" novalidate>
       <div class="quick">
-        <label class="sr-only" for="quick-phone">Numero di telefono</label>
-        <input id="quick-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Il tuo numero di telefono" required>
+        <label class="sr-only" for="quick-phone">Telefonnummer</label>
+        <input id="quick-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ihre Telefonnummer" required>
         <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button type="submit" aria-label="Richiedi una chiamata"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+        <button type="submit" aria-label="Rückruf anfordern"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
       </div>
-      <p class="quick-note">Inviando il numero accetti di essere ricontattato riguardo alla tua richiesta.</p>
+      <p class="quick-note">Mit dem Absenden stimmen Sie zu, dass wir Sie zu Ihrer Anfrage kontaktieren.</p>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
 
+<!-- TRUST BAR -->
+<div class="container">
+  <ul class="trust reveal">
+    <li><b>10+</b><span>Jahre Erfahrung</span></li>
+    <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg><span>Alle Gewerke aus einer Hand</span></li>
+    <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg><span>Besichtigung und Angebot kostenlos</span></li>
+    <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Salzgitter · Braunschweig · Wolfsburg · Hannover</span></li>
+  </ul>
+</div>
+
+<!-- TURNKEY: from demolition to finished flat -->
+<section class="section" id="schluesselfertig">
+  <div class="container">
+    <div class="center reveal">
+      <span class="tag">Schlüsselfertig</span>
+      <h2 class="h2">Vom Rückbau bis zur fertigen Wohnung</h2>
+      <p class="lead">Sie beauftragen einen einzigen Betrieb: Wir übernehmen alle Gewerke in der richtigen Reihenfolge und übergeben die Wohnung bezugsfertig.</p>
+    </div>
+    <div class="turnkey">
+      <figure class="turnkey-img media reveal">
+        <img src="assets/img/turnkey-start-800.webp" srcset="assets/img/turnkey-start-800.webp 800w, assets/img/turnkey-start-928.webp 928w" sizes="(min-width:1024px) 300px, 100vw" width="800" height="993" alt="Entkernter Raum zu Beginn der Arbeiten" loading="lazy" decoding="async">
+        <figcaption><span>Start</span><b>Rückbau</b></figcaption>
+      </figure>
+      <ol class="stages reveal d1">
+        <li class="stage"><span class="stage-num">01</span><div><b>Rückbau</b><span>inklusive Entsorgung</span></div></li>
+        <li class="stage"><span class="stage-num">02</span><div><b>Elektrik</b><span>Leitungen und Steckdosen</span></div></li>
+        <li class="stage"><span class="stage-num">03</span><div><b>Sanitär</b><span>Rohre und Sanitärobjekte</span></div></li>
+        <li class="stage"><span class="stage-num">04</span><div><b>Fliesen</b><span>Boden und Wand</span></div></li>
+        <li class="stage"><span class="stage-num">05</span><div><b>Wände</b><span>Tapezieren und Streichen</span></div></li>
+        <li class="stage"><span class="stage-num">06</span><div><b>Böden</b><span>Laminat und Sockelleisten</span></div></li>
+        <li class="stage"><span class="stage-num">07</span><div><b>Türen und Heizkörper</b><span>Lackierung und Beschläge</span></div></li>
+        <li class="stage stage--final"><span class="stage-num">08</span><div><b>Übergabe</b><span>Endreinigung und Schlüssel</span></div></li>
+      </ol>
+      <figure class="turnkey-img media reveal d2">
+        <img src="assets/img/turnkey-end-800.webp" srcset="assets/img/turnkey-end-800.webp 800w, assets/img/turnkey-end-928.webp 928w" sizes="(min-width:1024px) 300px, 100vw" width="800" height="993" alt="Derselbe Raum nach Abschluss der Arbeiten" loading="lazy" decoding="async">
+        <figcaption><span>Ergebnis</span><b>Bezugsfertig</b></figcaption>
+      </figure>
+    </div>
+    <ul class="turnkey-facts reveal">
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg><span>Ein Vertrag, ein Ansprechpartner</span></li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg><span>Material und Logistik inklusive</span></li>
+      <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Keine Abstimmung zwischen Handwerkern</span></li>
+    </ul>
+    <div class="cta-center reveal"><a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></div>
+  </div>
+</section>
+
 <!-- SERVICES -->
-<section class="section" id="servizi">
+<section class="section" id="leistungen">
   <div class="container">
     <div class="head-split reveal">
       <div>
-        <span class="tag">Servizi</span>
-        <h2 class="h2">Tutti i lavori, un’unica impresa</h2>
+        <span class="tag">Leistungen</span>
+        <h2 class="h2">Alle Gewerke aus einer Hand</h2>
       </div>
       <div class="btn-row">
-        <a class="btn btn--gold " href="#contatti">Preventivo gratuito<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-        <a class="btn btn--outline" href="https://wa.me/4915213405131?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20una%20ristrutturazione." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a>
+        <a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+        <a class="btn btn--outline" href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a>
       </div>
     </div>
     <div class="cards">
       <article class="card reveal d0">
-        <div class="media"><img src="assets/img/svc-turnkey-800.webp" srcset="assets/img/svc-turnkey-800.webp 800w, assets/img/svc-turnkey-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Ristrutturazione completa" loading="lazy" decoding="async"></div>
-        <h3>Ristrutturazione completa</h3>
-        <p>Dalla demolizione alla pulizia finale, un solo referente.</p>
+        <div class="media"><img src="assets/img/svc-turnkey-800.webp" srcset="assets/img/svc-turnkey-800.webp 800w, assets/img/svc-turnkey-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Komplettsanierung" loading="lazy" decoding="async"></div>
+        <h3>Komplettsanierung</h3>
+        <p>Vom Rückbau bis zur Endreinigung – aus einer Hand.</p>
         <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></span>
       </article>
       <article class="card reveal d1">
-        <div class="media"><img src="assets/img/svc-bath-800.webp" srcset="assets/img/svc-bath-800.webp 800w, assets/img/svc-bath-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Ristrutturazione bagni" loading="lazy" decoding="async"></div>
-        <h3>Ristrutturazione bagni</h3>
-        <p>Impianti, rivestimenti, sanitari e rubinetteria.</p>
+        <div class="media"><img src="assets/img/svc-bath-800.webp" srcset="assets/img/svc-bath-800.webp 800w, assets/img/svc-bath-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Badsanierung" loading="lazy" decoding="async"></div>
+        <h3>Badsanierung</h3>
+        <p>Leitungen, Fliesen, Sanitär und Armaturen.</p>
         <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.68 3 4 3.68 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="m10 5-2 2"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M17 19v2"/></svg></span>
       </article>
       <article class="card reveal d2">
-        <div class="media"><img src="assets/img/svc-electric-800.webp" srcset="assets/img/svc-electric-800.webp 800w, assets/img/svc-electric-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Impianti elettrici" loading="lazy" decoding="async"></div>
-        <h3>Impianti elettrici</h3>
-        <p>Nuove linee, prese e punti luce a norma.</p>
+        <div class="media"><img src="assets/img/svc-electric-800.webp" srcset="assets/img/svc-electric-800.webp 800w, assets/img/svc-electric-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Elektroinstallation" loading="lazy" decoding="async"></div>
+        <h3>Elektroinstallation</h3>
+        <p>Leitungen, Steckdosen und Licht – normgerecht.</p>
         <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
       </article>
       <article class="card reveal d0">
-        <div class="media"><img src="assets/img/svc-paint-800.webp" srcset="assets/img/svc-paint-800.webp 800w, assets/img/svc-paint-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Pittura e carta da parati" loading="lazy" decoding="async"></div>
-        <h3>Pittura e carta da parati</h3>
-        <p>Pareti, porte e radiatori, posa della carta da parati.</p>
+        <div class="media"><img src="assets/img/svc-paint-800.webp" srcset="assets/img/svc-paint-800.webp 800w, assets/img/svc-paint-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Malerarbeiten & Tapeten" loading="lazy" decoding="async"></div>
+        <h3>Malerarbeiten & Tapeten</h3>
+        <p>Wände, Türen und Heizkörper streichen, Tapeten kleben.</p>
         <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="16" height="6" rx="2"/><path d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="8" y="16" width="4" height="6" rx="1"/></svg></span>
       </article>
       <article class="card reveal d1">
-        <div class="media"><img src="assets/img/svc-floor-800.webp" srcset="assets/img/svc-floor-800.webp 800w, assets/img/svc-floor-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Laminato e battiscopa" loading="lazy" decoding="async"></div>
-        <h3>Laminato e battiscopa</h3>
-        <p>Posa di laminato con battiscopa e finiture pulite.</p>
+        <div class="media"><img src="assets/img/svc-floor-800.webp" srcset="assets/img/svc-floor-800.webp 800w, assets/img/svc-floor-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Laminat und Sockelleisten" loading="lazy" decoding="async"></div>
+        <h3>Laminat und Sockelleisten</h3>
+        <p>Laminat verlegen – mit Sockelleisten und sauberen Abschlüssen.</p>
         <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>
       </article>
       <article class="card reveal d2">
-        <div class="media"><img src="assets/img/svc-tiles-800.webp" srcset="assets/img/svc-tiles-800.webp 800w, assets/img/svc-tiles-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Piastrellatura" loading="lazy" decoding="async"></div>
-        <h3>Piastrellatura</h3>
-        <p>Pavimenti e rivestimenti per bagni, cucine e corridoi.</p>
+        <div class="media"><img src="assets/img/svc-tiles-800.webp" srcset="assets/img/svc-tiles-800.webp 800w, assets/img/svc-tiles-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Fliesenarbeiten" loading="lazy" decoding="async"></div>
+        <h3>Fliesenarbeiten</h3>
+        <p>Boden- und Wandfliesen für Bad, Küche und Flur.</p>
         <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/><path d="M12 3v18"/></svg></span>
       </article>
       <article class="card reveal d0">
-        <div class="media"><img src="assets/img/svc-plumbing-800.webp" srcset="assets/img/svc-plumbing-800.webp 800w, assets/img/svc-plumbing-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Impianti idraulici" loading="lazy" decoding="async"></div>
-        <h3>Impianti idraulici</h3>
-        <p>Tubazioni, scarichi, sanitari e allacciamenti.</p>
+        <div class="media"><img src="assets/img/svc-plumbing-800.webp" srcset="assets/img/svc-plumbing-800.webp 800w, assets/img/svc-plumbing-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Sanitärinstallation" loading="lazy" decoding="async"></div>
+        <h3>Sanitärinstallation</h3>
+        <p>Rohre, Abflüsse, Sanitärobjekte und Anschlüsse.</p>
         <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg></span>
       </article>
       <article class="card reveal d1">
-        <div class="media"><img src="assets/img/svc-demolition-800.webp" srcset="assets/img/svc-demolition-800.webp 800w, assets/img/svc-demolition-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Demolizioni" loading="lazy" decoding="async"></div>
-        <h3>Demolizioni</h3>
-        <p>Rimozione di pavimenti e tramezzi, macerie incluse.</p>
+        <div class="media"><img src="assets/img/svc-demolition-800.webp" srcset="assets/img/svc-demolition-800.webp 800w, assets/img/svc-demolition-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Abbrucharbeiten" loading="lazy" decoding="async"></div>
+        <h3>Abbrucharbeiten</h3>
+        <p>Rückbau von Böden und Wänden, inkl. Entsorgung.</p>
         <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 12-8.37 8.37a2.12 2.12 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.91-1.91A2 2 0 0 1 19 8.17V7l-2.26-1.13A6 6 0 0 0 14.1 5H13l.5 1.5L12 9"/></svg></span>
       </article>
       <article class="card reveal d2">
-        <div class="media"><img src="assets/img/svc-rental-800.webp" srcset="assets/img/svc-rental-800.webp 800w, assets/img/svc-rental-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Pronto per l’affitto" loading="lazy" decoding="async"></div>
-        <h3>Pronto per l’affitto</h3>
-        <p>Appartamenti rimessi a nuovo dopo il cambio inquilino.</p>
+        <div class="media"><img src="assets/img/svc-rental-800.webp" srcset="assets/img/svc-rental-800.webp 800w, assets/img/svc-rental-1024.webp 1024w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" width="800" height="800" alt="Renovierung nach Auszug" loading="lazy" decoding="async"></div>
+        <h3>Renovierung nach Auszug</h3>
+        <p>Wohnungen schnell wieder bezugsfertig und vermietbar.</p>
         <span class="icon-chip"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 21v-6h4v6"/></svg></span>
       </article>
     </div>
@@ -651,111 +776,117 @@ p,li,label,address,.lead{text-wrap:pretty}
 </section>
 
 <!-- PORTFOLIO -->
-<section class="section" id="progetti">
+<section class="section" id="projekte">
   <div class="container">
     <div class="head-split reveal">
       <div>
-        <span class="tag">Progetti</span>
-        <h2 class="h2">I nostri lavori</h2>
+        <span class="tag">Projekte</span>
+        <h2 class="h2">Unsere Arbeiten</h2>
       </div>
-      <p class="lead">Foto reali dei nostri cantieri: appartamenti, case e bagni ristrutturati per privati, investitori e società immobiliari.</p>
+      <p class="lead">Echte Fotos von unseren Baustellen: renovierte Wohnungen, Häuser und Bäder.</p>
     </div>
     <div class="works">
-      <figure class="work media reveal d0"><img src="assets/img/pf-bath-800.webp" srcset="assets/img/pf-bath-800.webp 800w, assets/img/pf-bath-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Ristrutturazione bagno" loading="lazy" decoding="async"><figcaption><b>Ristrutturazione bagno</b><span>Piastrelle · Sanitari · Impianti</span></figcaption></figure>
-      <figure class="work media reveal d1"><img src="assets/img/pf-shower-800.webp" srcset="assets/img/pf-shower-800.webp 800w, assets/img/pf-shower-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Doccia e rivestimenti" loading="lazy" decoding="async"><figcaption><b>Doccia e rivestimenti</b><span>Piastrellatura · Idraulica</span></figcaption></figure>
-      <figure class="work media reveal d2"><img src="assets/img/pf-progress-800.webp" srcset="assets/img/pf-progress-800.webp 800w, assets/img/pf-progress-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Bagno in lavorazione" loading="lazy" decoding="async"><span class="live">Cantiere</span><figcaption><b>Bagno in lavorazione</b><span>Sanitari · Rivestimenti</span></figcaption></figure>
-      <figure class="work media reveal d0"><img src="assets/img/pf-tub-800.webp" srcset="assets/img/pf-tub-800.webp 800w, assets/img/pf-tub-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Bagno con vasca" loading="lazy" decoding="async"><figcaption><b>Bagno con vasca</b><span>Rivestimenti · Sanitari</span></figcaption></figure>
-      <figure class="work media reveal d1"><img src="assets/img/pf-electric-800.webp" srcset="assets/img/pf-electric-800.webp 800w, assets/img/pf-electric-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Impianto elettrico" loading="lazy" decoding="async"><figcaption><b>Impianto elettrico</b><span>Quadro contatori · Nuove linee</span></figcaption></figure>
-      <figure class="work media reveal d2"><img src="assets/img/pf-plumbing-800.webp" srcset="assets/img/pf-plumbing-800.webp 800w, assets/img/pf-plumbing-1600.webp 1600w" sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw" alt="Sanitari sospesi" loading="lazy" decoding="async"><figcaption><b>Sanitari sospesi</b><span>Idraulica · Predisposizione WC</span></figcaption></figure>
+      <a class="work media reveal work--big" href="assets/img/pf-living-1536.webp" data-w="1536" data-h="2048" data-title="Wohnzimmer saniert" aria-label="Wohnzimmer saniert – Foto vergrößern"><img src="assets/img/pf-living-800.webp" srcset="assets/img/pf-living-800.webp 800w, assets/img/pf-living-1536.webp 1536w" sizes="(min-width:1024px) 620px, 100vw" width="800" height="1067" alt="Wohnzimmer saniert" loading="lazy" decoding="async"><span class="work-cap"><b>Wohnzimmer saniert</b><span>Wände · Laminat · Türen</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal work--tall" href="assets/img/pf-bath-1536.webp" data-w="1536" data-h="2048" data-title="Badsanierung" aria-label="Badsanierung – Foto vergrößern"><img src="assets/img/pf-bath-800.webp" srcset="assets/img/pf-bath-800.webp 800w, assets/img/pf-bath-1536.webp 1536w" sizes="(min-width:1024px) 300px, 50vw" width="800" height="1067" alt="Badsanierung" loading="lazy" decoding="async"><span class="work-cap"><b>Badsanierung</b><span>Fliesen · Sanitär</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal work--tall" href="assets/img/pf-walkin-1536.webp" data-w="1536" data-h="2048" data-title="Bodengleiche Dusche" aria-label="Bodengleiche Dusche – Foto vergrößern"><img src="assets/img/pf-walkin-800.webp" srcset="assets/img/pf-walkin-800.webp 800w, assets/img/pf-walkin-1536.webp 1536w" sizes="(min-width:1024px) 300px, 50vw" width="800" height="1067" alt="Bodengleiche Dusche" loading="lazy" decoding="async"><span class="work-cap"><b>Bodengleiche Dusche</b><span>Fliesen · Sanitär</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal work--tall" href="assets/img/pf-room-1536.webp" data-w="1536" data-h="2048" data-title="Zimmer renoviert" aria-label="Zimmer renoviert – Foto vergrößern"><img src="assets/img/pf-room-800.webp" srcset="assets/img/pf-room-800.webp 800w, assets/img/pf-room-1536.webp 1536w" sizes="(min-width:1024px) 300px, 50vw" width="800" height="1067" alt="Zimmer renoviert" loading="lazy" decoding="async"><span class="work-cap"><b>Zimmer renoviert</b><span>Malerarbeiten · Laminat</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal" href="assets/img/pf-progress-1536.webp" data-w="1536" data-h="2048" data-title="Bad im Umbau" aria-label="Bad im Umbau – Foto vergrößern"><img src="assets/img/pf-progress-800.webp" srcset="assets/img/pf-progress-800.webp 800w, assets/img/pf-progress-1536.webp 1536w" sizes="(min-width:1024px) 300px, 50vw" width="800" height="1067" alt="Bad im Umbau" loading="lazy" decoding="async"><span class="live">Baustelle</span><span class="work-cap"><b>Bad im Umbau</b><span>Sanitär · Wandbelag</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal work--tall" href="assets/img/pf-tub-1536.webp" data-w="1536" data-h="2048" data-title="Bad mit Wanne" aria-label="Bad mit Wanne – Foto vergrößern"><img src="assets/img/pf-tub-800.webp" srcset="assets/img/pf-tub-800.webp 800w, assets/img/pf-tub-1536.webp 1536w" sizes="(min-width:1024px) 300px, 50vw" width="800" height="1067" alt="Bad mit Wanne" loading="lazy" decoding="async"><span class="work-cap"><b>Bad mit Wanne</b><span>Fliesen · Sanitärobjekte</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal work--tall" href="assets/img/pf-floor-1200.webp" data-w="1200" data-h="1600" data-title="Badboden gefliest" aria-label="Badboden gefliest – Foto vergrößern"><img src="assets/img/pf-floor-800.webp" srcset="assets/img/pf-floor-800.webp 800w, assets/img/pf-floor-1200.webp 1200w" sizes="(min-width:1024px) 300px, 50vw" width="800" height="1067" alt="Badboden gefliest" loading="lazy" decoding="async"><span class="work-cap"><b>Badboden gefliest</b><span>Großformat-Fliesen</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal" href="assets/img/pf-shower-1200.webp" data-w="1200" data-h="1600" data-title="Wandfliesen Dusche" aria-label="Wandfliesen Dusche – Foto vergrößern"><img src="assets/img/pf-shower-800.webp" srcset="assets/img/pf-shower-800.webp 800w, assets/img/pf-shower-1200.webp 1200w" sizes="(min-width:1024px) 300px, 50vw" width="800" height="1067" alt="Wandfliesen Dusche" loading="lazy" decoding="async"><span class="work-cap"><b>Wandfliesen Dusche</b><span>Fliesenarbeiten</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal work--wide" href="assets/img/pf-laminate-1200.webp" data-w="1200" data-h="1600" data-title="Laminat und Sockelleisten" aria-label="Laminat und Sockelleisten – Foto vergrößern"><img src="assets/img/pf-laminate-800.webp" srcset="assets/img/pf-laminate-800.webp 800w, assets/img/pf-laminate-1200.webp 1200w" sizes="(min-width:1024px) 620px, 100vw" width="800" height="1067" alt="Laminat und Sockelleisten" loading="lazy" decoding="async"><span class="work-cap"><b>Laminat und Sockelleisten</b><span>Bodenbelag</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal work--tall" href="assets/img/pf-electric-1536.webp" data-w="1536" data-h="2048" data-title="Elektroinstallation" aria-label="Elektroinstallation – Foto vergrößern"><img src="assets/img/pf-electric-800.webp" srcset="assets/img/pf-electric-800.webp 800w, assets/img/pf-electric-1536.webp 1536w" sizes="(min-width:1024px) 300px, 50vw" width="800" height="1067" alt="Elektroinstallation" loading="lazy" decoding="async"><span class="live">Baustelle</span><span class="work-cap"><b>Elektroinstallation</b><span>Zählerschrank</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal work--tall" href="assets/img/pf-balcony-1536.webp" data-w="1536" data-h="2048" data-title="Balkon saniert" aria-label="Balkon saniert – Foto vergrößern"><img src="assets/img/pf-balcony-800.webp" srcset="assets/img/pf-balcony-800.webp 800w, assets/img/pf-balcony-1536.webp 1536w" sizes="(min-width:1024px) 300px, 50vw" width="800" height="1067" alt="Balkon saniert" loading="lazy" decoding="async"><span class="work-cap"><b>Balkon saniert</b><span>Beschichtung · Anstrich</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
+      <a class="work media reveal work--wide" href="assets/img/pf-plumbing-1600.webp" data-w="1600" data-h="1200" data-title="Vorwandinstallation" aria-label="Vorwandinstallation – Foto vergrößern"><img src="assets/img/pf-plumbing-800.webp" srcset="assets/img/pf-plumbing-800.webp 800w, assets/img/pf-plumbing-1600.webp 1600w" sizes="(min-width:1024px) 620px, 100vw" width="800" height="600" alt="Vorwandinstallation" loading="lazy" decoding="async"><span class="live">Baustelle</span><span class="work-cap"><b>Vorwandinstallation</b><span>Sanitär · WC-Vorwand</span></span><span class="work-zoom"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></a>
     </div>
     <div class="sites reveal">
-      <h3>Cantieri recenti</h3>
+      <h3>Referenzobjekte</h3>
       <ul>
-        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Am Heller 6</b><span>2 appartamenti</span></div><em>Completato</em></li>
-        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Sternbergstraße 83</b><span>Ristrutturazione</span></div><em>Completato</em></li>
-        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Bodenbacher Ring 109</b><span>Ristrutturazione</span></div><em class="is-live">In corso</em></li>
-        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Hertastraße 8</b><span>Ristrutturazione</span></div><em>Completato</em></li>
-        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Auf der Tanne 11</b><span>Ristrutturazione</span></div><em>Completato</em></li>
-        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Hassjägerweg 30</b><span>Ristrutturazione</span></div><em>Completato</em></li>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Am Heller 6</b><span>2 Wohnungen</span></div><em>Abgeschlossen</em></li>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Sternbergstraße 83</b><span>Sanierung</span></div><em>Abgeschlossen</em></li>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Bodenbacher Ring 109</b><span>Sanierung</span></div><em class="is-live">In Arbeit</em></li>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Hertastraße 8</b><span>Sanierung</span></div><em>Abgeschlossen</em></li>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Auf der Tanne 11</b><span>Sanierung</span></div><em>Abgeschlossen</em></li>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Hassjägerweg 30</b><span>Sanierung</span></div><em>Abgeschlossen</em></li>
       </ul>
     </div>
   </div>
 </section>
 
 <!-- CTA / WHY US -->
-<section class="section" id="perche">
+<section class="section" id="warum-wir">
   <div class="why wide">
     <div class="why-card grain reveal">
       <div>
-        <span class="tag tag--light">Perché noi</span>
-        <h2 class="h2">Ci occupiamo di tutto, dall’inizio alla fine</h2>
-        <p>Acquisto e consegna dei materiali, smaltimento delle macerie e coordinamento di tutte le fasi del cantiere: tu ricevi l’appartamento finito.</p>
+        <span class="tag tag--light">Warum wir</span>
+        <h2 class="h2">Wir kümmern uns um alles – von A bis Z</h2>
+        <p>Materialeinkauf und -lieferung, Entsorgung des Bauschutts und Koordination aller Bauphasen: Sie erhalten die fertige Wohnung.</p>
       </div>
       <div class="stats">
-        <div class="stat"><b>10<em>+</em></b><span>anni di esperienza</span></div>
-        <div class="stat"><b>1</b><span>referente unico</span></div>
-        <div class="stat"><b>0<em>€</em></b><span>per il preventivo</span></div>
+        <div class="stat"><b>10<em>+</em></b><span>Jahre Erfahrung</span></div>
+        <div class="stat"><b>1</b><span>Ansprechpartner</span></div>
+        <div class="stat"><b>0 <em>€</em></b><span>für das Angebot</span></div>
       </div>
     </div>
     <div class="why-photo media reveal d1">
-      <img src="assets/img/van-800.webp" srcset="assets/img/van-800.webp 800w, assets/img/van-1600.webp 1600w" sizes="(min-width:1024px) 50vw, 100vw" alt="Furgone aziendale János Barna BAU" loading="lazy" decoding="async">
+      <img src="assets/img/van-800.webp" srcset="assets/img/van-800.webp 800w, assets/img/van-1200.webp 1200w" sizes="(min-width:1024px) 50vw, 100vw" width="800" height="1067" alt="Firmenfahrzeug von János Barna BAU" loading="lazy" decoding="async">
       <div class="why-notch">
         <span class="corner corner--tr"></span><span class="corner corner--tr b"></span>
-        <a class="btn btn--gold " href="#contatti">Preventivo gratuito<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+        <a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- BENEFITS -->
-<section class="section" id="vantaggi">
+<section class="section" id="vorteile">
   <div class="container">
     <div class="center reveal">
-      <span class="tag">Vantaggi</span>
-      <h2 class="h2">Oltre 10 anni nell’edilizia</h2>
-      <p class="lead">Lavoriamo principalmente a Salzgitter, Braunschweig, Wolfsburg e Hannover, per privati, investitori, società immobiliari e amministratori.</p>
+      <span class="tag">Vorteile</span>
+      <h2 class="h2">Mehr als 10 Jahre Erfahrung am Bau</h2>
+      <p class="lead">Wir arbeiten vor allem in Salzgitter, Braunschweig, Wolfsburg und Hannover – für Privatkunden, Investoren und Hausverwaltungen.</p>
     </div>
     <div class="benefits reveal">
     <div class="benefits-media media">
-      <img src="assets/img/benefits-800.webp" srcset="assets/img/benefits-800.webp 800w, assets/img/benefits-1600.webp 1600w" sizes="(min-width:1300px) 1240px, 100vw" alt="Bagno ristrutturato con piastrelle bianche" loading="lazy" decoding="async">
+      <img src="assets/img/benefits-800.webp" srcset="assets/img/benefits-800.webp 800w, assets/img/benefits-1376.webp 1376w" sizes="(min-width:1300px) 1240px, 100vw" width="800" height="447" alt="Zwei Handwerker besprechen den Plan auf der Baustelle" loading="lazy" decoding="async">
     </div>
       <div class="features">
-        <div class="feature"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span><div><h3>Preventivi trasparenti</h3><p>Dopo il sopralluogo ricevi un preventivo dettagliato, senza sorprese.</p></div></div>
-        <div class="feature"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><div><h3>Qualità e tempi rispettati</h3><p>Lavori eseguiti a regola d’arte, nei tempi concordati.</p></div></div>
-        <div class="feature"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></span><div><h3>Un unico appaltatore</h3><p>Tutti i lavori da un’unica impresa: meno coordinamento, meno stress.</p></div></div>
+        <div class="feature"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg></span><div><h3>Transparente Angebote</h3><p>Nach der Besichtigung: ein klares Angebot ohne Überraschungen.</p></div></div>
+        <div class="feature"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span><div><h3>Qualität und Termintreue</h3><p>Sauber ausgeführte Arbeiten in der vereinbarten Zeit.</p></div></div>
+        <div class="feature"><span class="ic"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></span><div><h3>Alles aus einer Hand</h3><p>Alle Gewerke von einem Betrieb: weniger Abstimmung, weniger Stress.</p></div></div>
       </div>
     </div>
-    <div class="cta-center reveal"><a class="btn btn--gold " href="#contatti">Preventivo gratuito<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></div>
+    <div class="cta-center reveal"><a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></div>
   </div>
 </section>
 
 <!-- ABOUT / PROCESS -->
-<section class="section" id="chi-siamo">
+<section class="section" id="ueber-uns">
   <div class="container">
     <div class="head-split reveal">
       <div>
-        <span class="tag">Chi siamo</span>
-        <h2 class="h2">Ecco come lavoriamo</h2>
+        <span class="tag">Über uns</span>
+        <h2 class="h2">So arbeiten wir</h2>
       </div>
-      <p class="lead">János Barna BAU è un’impresa edile di Salzgitter. Lavoriamo per società immobiliari, amministratori, investitori e privati e seguiamo ogni cantiere dall’inizio alla fine.</p>
+      <p class="lead">János Barna BAU ist ein Baubetrieb aus Salzgitter. Wir arbeiten für Wohnungsgesellschaften, Hausverwaltungen, Investoren und Privatkunden und betreuen jede Baustelle von Anfang bis Ende.</p>
     </div>
     <div class="process">
       <figure class="process-video reveal">
         <div class="process-frame media">
-          <video src="assets/video/about.mp4" poster="assets/video/about-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Video di un appartamento ristrutturato"></video>
-          <span class="live">Dal cantiere</span>
-          <figcaption>Appartamento consegnato</figcaption>
+          <video src="assets/video/about.mp4" poster="assets/video/about-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Video einer renovierten Wohnung"></video>
+          <span class="live">Von der Baustelle</span>
+          <figcaption>Übergabefertige Wohnung</figcaption>
         </div>
       </figure>
       <div class="process-body">
         <ol class="steps">
-          <li class="step reveal"><span class="step-num">01</span><div><h3>Contattaci</h3><p>Telefono, WhatsApp o e‑mail: raccontaci il tuo progetto.</p></div></li>
-          <li class="step reveal d1"><span class="step-num">02</span><div><h3>Sopralluogo gratuito</h3><p>Visioniamo l’immobile e prepariamo un preventivo gratuito.</p></div></li>
-          <li class="step reveal d2"><span class="step-num">03</span><div><h3>Lavoro finito!</h3><p>Tutti i lavori, con materiali, logistica e pulizia finale.</p></div></li>
+          <li class="step reveal"><span class="step-num">01</span><div><h3>Kontakt aufnehmen</h3><p>Per Telefon, WhatsApp oder E‑Mail – erzählen Sie uns von Ihrem Vorhaben.</p></div><figure class="step-thumb media"><img src="assets/img/step-1-800.webp" srcset="assets/img/step-1-800.webp 800w, assets/img/step-1-1024.webp 1024w" sizes="96px" width="800" height="800" alt="Anfrage per Smartphone" loading="lazy" decoding="async"></figure></li>
+          <li class="step reveal d1"><span class="step-num">02</span><div><h3>Besichtigung & Angebot</h3><p>Wir besichtigen das Objekt und erstellen ein kostenloses Angebot.</p></div><figure class="step-thumb media"><img src="assets/img/step-2-800.webp" srcset="assets/img/step-2-800.webp 800w, assets/img/step-2-1024.webp 1024w" sizes="96px" width="800" height="800" alt="Aufmaß bei der Besichtigung" loading="lazy" decoding="async"></figure></li>
+          <li class="step reveal d2"><span class="step-num">03</span><div><h3>Fertig renoviert!</h3><p>Alle Arbeiten inklusive Material, Logistik und Endreinigung.</p></div><figure class="step-thumb media"><img src="assets/img/step-3-800.webp" srcset="assets/img/step-3-800.webp 800w, assets/img/step-3-1024.webp 1024w" sizes="96px" width="800" height="800" alt="Schlüsselübergabe" loading="lazy" decoding="async"></figure></li>
         </ol>
         <div class="btn-row reveal">
-          <a class="btn btn--gold " href="#contatti">Preventivo gratuito<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
-          <a class="btn btn--outline" href="https://wa.me/4915213405131?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20una%20ristrutturazione." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a>
+          <a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
+          <a class="btn btn--outline" href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a>
         </div>
       </div>
     </div>
@@ -763,31 +894,31 @@ p,li,label,address,.lead{text-wrap:pretty}
 </section>
 
 <!-- TESTIMONIALS (placeholders — replace with real client reviews before launch) -->
-<section class="section" id="recensioni">
+<section class="section" id="bewertungen">
   <div class="container">
     <div class="center reveal">
-      <span class="tag">Recensioni</span>
-      <h2 class="h2">Cosa dicono i nostri clienti</h2>
+      <span class="tag">Bewertungen</span>
+      <h2 class="h2">Was unsere Kunden sagen</h2>
     </div>
     <div class="reviews">
       <div class="review-row">
-        <div class="review-img media reveal"><img src="assets/img/review-1-800.webp" srcset="assets/img/review-1-800.webp 800w, assets/img/review-1-1600.webp 1600w" sizes="(min-width:1024px) 540px, 100vw" alt="Bagno ristrutturato" loading="lazy" decoding="async"></div>
+        <div class="review-img media reveal"><img src="assets/img/review-1-800.webp" srcset="assets/img/review-1-800.webp 800w, assets/img/review-1-1600.webp 1600w" sizes="(min-width:1024px) 540px, 100vw" width="800" height="600" alt="Saniertes Bad mit weißen Fliesen" loading="lazy" decoding="async"></div>
         <div class="review reveal d1">
-          <blockquote><q>Lavoro pulito e tempi rispettati</q></blockquote>
-          <p class="placeholder">[Testo della recensione — sostituire con una recensione reale del cliente prima della pubblicazione.]</p>
-          <div class="who"><span class="avatar">A</span><div><b>Nome Cliente</b><span>Salzgitter</span></div></div>
+          <blockquote><q>Saubere Arbeit, Termine eingehalten</q></blockquote>
+          <p class="placeholder">[Platzhalter – durch eine echte Kundenbewertung ersetzen.]</p>
+          <div class="who"><span class="avatar">A</span><div><b>Kundenname</b><span>Salzgitter</span></div></div>
         </div>
       </div>
       <div class="review-row flip">
         <div class="review reveal">
-          <blockquote><q>Un solo referente per tutta la ristrutturazione</q></blockquote>
-          <p class="placeholder">[Testo della recensione — sostituire con una recensione reale del cliente prima della pubblicazione.]</p>
-          <div class="who"><span class="avatar">B</span><div><b>Nome Cliente</b><span>Braunschweig</span></div></div>
+          <blockquote><q>Ein Ansprechpartner für die ganze Sanierung</q></blockquote>
+          <p class="placeholder">[Platzhalter – durch eine echte Kundenbewertung ersetzen.]</p>
+          <div class="who"><span class="avatar">B</span><div><b>Kundenname</b><span>Braunschweig</span></div></div>
         </div>
-        <div class="review-img media reveal d1"><img src="assets/img/review-2-800.webp" srcset="assets/img/review-2-800.webp 800w, assets/img/review-2-1600.webp 1600w" sizes="(min-width:1024px) 540px, 100vw" alt="Bagno con sanitari sospesi" loading="lazy" decoding="async"></div>
+        <div class="review-img media reveal d1"><img src="assets/img/review-2-800.webp" srcset="assets/img/review-2-800.webp 800w, assets/img/review-2-1200.webp 1200w" sizes="(min-width:1024px) 540px, 100vw" width="800" height="1067" alt="Bad mit neuen Sanitärobjekten" loading="lazy" decoding="async"></div>
       </div>
     </div>
-    <div class="cta-center reveal"><a class="btn btn--gold " href="#contatti">Preventivo gratuito<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></div>
+    <div class="cta-center reveal"><a class="btn btn--gold " href="#kontakt">Kostenloses Angebot<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a></div>
   </div>
 </section>
 
@@ -796,54 +927,57 @@ p,li,label,address,.lead{text-wrap:pretty}
   <div class="container">
     <div class="center reveal">
       <span class="tag">FAQ</span>
-      <h2 class="h2">Domande frequenti</h2>
+      <h2 class="h2">Häufige Fragen</h2>
     </div>
-    <div class="faq reveal">
-      <details name="faq" open><summary>Quanto costa ristrutturare un appartamento?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Il costo dipende dalla superficie, dallo stato dell’immobile e dalla quantità di lavori. Dopo il sopralluogo prepariamo un preventivo dettagliato e ti proponiamo la soluzione migliore.</p></details>
-      <details name="faq"><summary>Fate ristrutturazioni chiavi in mano?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Sì. Eseguiamo l’intero ciclo di lavori: demolizione, impianto elettrico, idraulica, piastrelle, carta da parati, tinteggiatura, laminato, sostituzione della ferramenta delle porte e pulizia finale.</p></details>
-      <details name="faq"><summary>In quali città lavorate?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>La nostra zona principale è Salzgitter, Braunschweig, Wolfsburg, Hannover e tutta la Bassa Sassonia. Su accordo lavoriamo anche in altre regioni della Germania.</p></details>
-      <details name="faq"><summary>Vi occupate dell’acquisto dei materiali?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Sì. Possiamo occuparci della scelta, dell’acquisto e della consegna dei materiali e di tutta la logistica.</p></details>
-      <details name="faq"><summary>Quanto dura una ristrutturazione?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Dipende dalla superficie e dalla complessità dei lavori. I piccoli interventi si completano in pochi giorni; una ristrutturazione completa di un appartamento richiede di solito alcune settimane.</p></details>
-      <details name="faq"><summary>Il preventivo è gratuito?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Sì. Dopo il sopralluogo o dopo aver ricevuto le informazioni necessarie ti prepariamo un’offerta personalizzata.</p></details>
-      <details name="faq"><summary>Offrite una garanzia sui lavori?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Sì. Rispondiamo della qualità dei lavori eseguiti secondo le norme vigenti e gli accordi presi con il cliente.</p></details>
-      <details name="faq"><summary>Lavorate con società immobiliari e amministratori?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Sì. Abbiamo esperienza con società immobiliari, investitori e proprietari privati.</p></details>
-      <details name="faq"><summary>Eseguite anche singoli lavori?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Sì. Puoi richiedere la ristrutturazione completa oppure singoli servizi: impianto elettrico, idraulica, piastrelle, tinteggiatura, carta da parati o posa del laminato.</p></details>
-      <details name="faq"><summary>Come si richiede una ristrutturazione?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Contattaci per telefono, WhatsApp o e‑mail. Parliamo del progetto, fissiamo un sopralluogo e prepariamo l’offerta.</p></details>
+    <div class="faq-wrap">
+    <figure class="faq-media media reveal"><img src="assets/img/faq-800.webp" srcset="assets/img/faq-800.webp 800w, assets/img/faq-896.webp 896w" sizes="(min-width:1024px) 400px, 100vw" width="800" height="1071" alt="Handwerker notiert Maße für das Angebot" loading="lazy" decoding="async"></figure>
+    <div class="faq reveal d1">
+      <details name="faq" open><summary>Was kostet eine Renovierung?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Die Kosten hängen von der Wohnfläche, dem Zustand der Räume und dem Umfang der Arbeiten ab. Nach der Besichtigung erstellen wir ein detailliertes Angebot und schlagen Ihnen die passende Lösung vor.</p></details>
+      <details name="faq"><summary>Bieten Sie Renovierungen schlüsselfertig an?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Ja. Wir übernehmen alle Arbeiten: Rückbau, Elektrik, Sanitär, Fliesen, Tapezieren, Malerarbeiten, Laminat, Austausch der Türbeschläge und Endreinigung.</p></details>
+      <details name="faq"><summary>In welchen Städten arbeiten Sie?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Wir arbeiten hauptsächlich in Salzgitter, Braunschweig, Wolfsburg, Hannover und in ganz Niedersachsen. Nach Absprache arbeiten wir auch in anderen Regionen Deutschlands.</p></details>
+      <details name="faq"><summary>Kümmern Sie sich um den Materialeinkauf?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Ja. Wir übernehmen Auswahl, Einkauf und Lieferung der Materialien sowie die gesamte Logistik.</p></details>
+      <details name="faq"><summary>Wie lange dauert eine Renovierung?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Das hängt von der Fläche und vom Umfang der Arbeiten ab. Kleinere Aufträge sind oft in wenigen Tagen erledigt, eine Komplettsanierung einer Wohnung dauert in der Regel einige Wochen.</p></details>
+      <details name="faq"><summary>Ist das Angebot kostenlos?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Ja. Nach der Besichtigung oder nach Erhalt der nötigen Informationen erstellen wir Ihnen ein individuelles Angebot.</p></details>
+      <details name="faq"><summary>Gibt es eine Gewährleistung?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Ja. Wir stehen für die Qualität unserer Arbeit ein – nach den gesetzlichen Vorgaben und den Vereinbarungen mit dem Auftraggeber.</p></details>
+      <details name="faq"><summary>Arbeiten Sie für Hausverwaltungen?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Ja. Wir arbeiten regelmäßig für Hausverwaltungen, Wohnungsgesellschaften, Investoren und private Eigentümer.</p></details>
+      <details name="faq"><summary>Übernehmen Sie auch einzelne Arbeiten?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Ja. Sie können eine Komplettsanierung oder einzelne Leistungen beauftragen: Elektrik, Sanitär, Fliesen, Malerarbeiten, Tapezieren oder Laminatverlegung.</p></details>
+      <details name="faq"><summary>Wie beauftrage ich eine Renovierung?<span class="pm"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span></summary><p>Kontaktieren Sie uns per Telefon, WhatsApp oder E‑Mail. Wir besprechen Ihr Projekt, vereinbaren eine Besichtigung und erstellen ein Angebot.</p></details>
+    </div>
     </div>
   </div>
 </section>
 
 <!-- CONTACT + FORM -->
-<section class="section" id="contatti">
+<section class="section" id="kontakt">
   <div class="contact wide">
       <div class="contact-card reveal">
-        <span class="tag">Contatti</span>
-        <h2 class="h2">Lavoriamo insieme!</h2>
-        <p class="lead">Descrivi il lavoro: ti ricontattiamo per fissare un sopralluogo e preparare un preventivo gratuito.</p>
+        <span class="tag">Kontakt</span>
+        <h2 class="h2">Starten wir Ihr Projekt!</h2>
+        <p class="lead">Beschreiben Sie Ihr Vorhaben – wir melden uns, vereinbaren eine Besichtigung und erstellen ein kostenloses Angebot.</p>
         <form class="form js-form" data-source="contact" novalidate>
           <div class="two">
-            <div class="field"><label for="f-name">Nome *</label><input id="f-name" name="name" autocomplete="name" required></div>
-            <div class="field"><label for="f-phone">Telefono *</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
+            <div class="field"><label for="f-name">Name *</label><input id="f-name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="f-phone">Telefon *</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required></div>
           </div>
           <div class="two">
             <div class="field"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
-            <div class="field"><label for="f-service">Tipo di lavoro</label><select id="f-service" name="service"><option value="turnkey">Ristrutturazione completa</option><option value="bath">Ristrutturazione bagni</option><option value="electric">Impianti elettrici</option><option value="paint">Pittura e carta da parati</option><option value="floor">Laminato e battiscopa</option><option value="tiles">Piastrellatura</option><option value="plumbing">Impianti idraulici</option><option value="demolition">Demolizioni</option><option value="rental">Pronto per l’affitto</option><option value="other">Altro / consulenza</option></select></div>
+            <div class="field"><label for="f-service">Art der Arbeiten</label><select id="f-service" name="service"><option value="turnkey">Komplettsanierung</option><option value="bath">Badsanierung</option><option value="electric">Elektroinstallation</option><option value="paint">Malerarbeiten & Tapeten</option><option value="floor">Laminat und Sockelleisten</option><option value="tiles">Fliesenarbeiten</option><option value="plumbing">Sanitärinstallation</option><option value="demolition">Abbrucharbeiten</option><option value="rental">Renovierung nach Auszug</option><option value="other">Sonstiges / Beratung</option></select></div>
           </div>
-          <div class="field"><label for="f-msg">Messaggio</label><textarea id="f-msg" name="message" placeholder="Città, metri quadri, lavori da eseguire…"></textarea></div>
+          <div class="field"><label for="f-msg">Nachricht</label><textarea id="f-msg" name="message" placeholder="Ort, Fläche, gewünschte Arbeiten …"></textarea></div>
           <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <label class="consent"><input type="checkbox" name="consent" required><span>Acconsento al trattamento dei miei dati per essere ricontattato riguardo a questa richiesta. *</span></label>
-          <button class="btn btn--gold" type="submit">Invia richiesta<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></button>
+          <label class="consent"><input type="checkbox" name="consent" required><span>Ich willige ein, dass meine Angaben zur Bearbeitung dieser Anfrage verwendet werden. *</span></label>
+          <button class="btn btn--gold" type="submit">Anfrage senden<span class="btn-dot"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></button>
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
       <div class="contact-photo media reveal d1">
-        <img src="assets/img/contact-800.webp" srcset="assets/img/contact-800.webp 800w, assets/img/contact-1600.webp 1600w" sizes="(min-width:1024px) 520px, 100vw" alt="Furgone aziendale János Barna BAU" loading="lazy" decoding="async">
+        <img src="assets/img/contact-800.webp" srcset="assets/img/contact-800.webp 800w, assets/img/contact-1536.webp 1536w" sizes="(min-width:1024px) 520px, 100vw" width="800" height="1067" alt="Firmenfahrzeug von János Barna BAU" loading="lazy" decoding="async">
         <div class="contact-info">
-          <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contatti</h3>
+          <h3><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Kontakt</h3>
           <ul>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Telefono: <a href="tel:+4915213405131">+49 1521 3405131</a></span></li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg><span>WhatsApp: <a href="https://wa.me/4915213405131?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20una%20ristrutturazione." target="_blank" rel="noopener">+49 1521 3405131</a></span></li>
-            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Cellulare di servizio: <a href="tel:+491627928876">+49 162 7928876</a></span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Telefon: <a href="tel:+4915213405131">+49 1521 3405131</a></span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg><span>WhatsApp: <a href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener">+49 1521 3405131</a></span></li>
+            <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Diensthandy: <a href="tel:+491627928876">+49 162 7928876</a></span></li>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><span><a href="mailto:janos.barna.bau@gmail.com">janos.barna.bau@gmail.com</a></span></li>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><address>János Barna BAU, Martin‑Luther‑Straße 21, 38226 Salzgitter</address></li>
           </ul>
@@ -860,18 +994,18 @@ p,li,label,address,.lead{text-wrap:pretty}
       <div class="footer-grid">
         <div>
           <a class="logo" href="#top" aria-label="János Barna BAU"><img class="logo-full" src="assets/logo/logo.webp" width="632" height="480" alt="János Barna BAU" loading="lazy" decoding="async"></a>
-          <p>Ristrutturazioni chiavi in mano di appartamenti e case a Salzgitter, Braunschweig, Wolfsburg, Hannover e in tutta la Bassa Sassonia.</p>
+          <p>Schlüsselfertige Sanierung von Wohnungen und Häusern in Salzgitter, Braunschweig, Wolfsburg, Hannover und ganz Niedersachsen.</p>
         </div>
         <div>
-          <h4>Navigazione</h4>
-          <ul><li><a href="#servizi">Servizi</a></li><li><a href="#progetti">Progetti</a></li><li><a href="#vantaggi">Vantaggi</a></li><li><a href="#chi-siamo">Chi siamo</a></li><li><a href="#contatti">Contatti</a></li><li><a href="#faq">FAQ</a></li></ul>
+          <h4>Navigation</h4>
+          <ul><li><a href="#leistungen">Leistungen</a></li><li><a href="#projekte">Projekte</a></li><li><a href="#vorteile">Vorteile</a></li><li><a href="#ueber-uns">Über uns</a></li><li><a href="#kontakt">Kontakt</a></li><li><a href="#faq">FAQ</a></li></ul>
         </div>
         <div>
-          <h4>Contatti</h4>
+          <h4>Kontakt</h4>
           <ul>
             <li><a href="tel:+4915213405131"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+49 1521 3405131</a></li>
-            <li><a href="tel:+491627928876"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+49 162 7928876 · servizio</a></li>
-            <li><a href="https://wa.me/4915213405131?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20una%20ristrutturazione." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a></li>
+            <li><a href="tel:+491627928876"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+49 162 7928876 · Dienst</a></li>
+            <li><a href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a></li>
             <li><a href="mailto:janos.barna.bau@gmail.com"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>janos.barna.bau@gmail.com</a></li>
             <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span> Martin‑Luther‑Straße 21, 38226 Salzgitter</span></li>
           </ul>
@@ -879,21 +1013,52 @@ p,li,label,address,.lead{text-wrap:pretty}
       </div>
       <div class="footer-bottom">
         <span>© <span class="js-year">2026</span> János Barna BAU</span>
-        <span>Ristrutturazioni chiavi in mano</span>
+        <span>Schlüsselfertige Sanierung</span>
       </div>
     </div>
   </div>
 </footer>
 
-<nav class="action-bar" aria-label="Contatto rapido">
-  <a href="tel:+4915213405131"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Chiama</a>
-  <a href="https://wa.me/4915213405131?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20una%20ristrutturazione." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a>
+<dialog class="lightbox" aria-label="Projektgalerie">
+  <div class="lightbox-stage"><img alt=""></div>
+  <div class="lightbox-bar"><span class="lightbox-title"></span><span class="lightbox-count"></span></div>
+  <button class="lb-close" type="button" aria-label="Schließen"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+  <button class="lb-prev" type="button" aria-label="Vorheriges Foto"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+  <button class="lb-next" type="button" aria-label="Nächstes Foto"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+</dialog>
+
+<nav class="action-bar" aria-label="Schnellkontakt">
+  <a href="tel:+4915213405131"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Anrufen</a>
+  <a href="https://wa.me/4915213405131?text=Guten%20Tag%2C%20ich%20m%C3%B6chte%20ein%20Angebot%20f%C3%BCr%20eine%20Renovierung." target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.65-4.8A8.5 8.5 0 1 1 7.8 19.4Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-1.9-.9-.8.8a4 4 0 0 1-2.4-2.4l.8-.8-.9-1.9Z"/></svg>WhatsApp</a>
 </nav>
 
 <script>
 (function(){
   var d=document, root=d.documentElement;
   root.classList.add('js');
+
+  // header gets its glass background once the page is scrolled
+  var onScroll=function(){root.classList.toggle('scrolled',window.scrollY>8);};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // project gallery lightbox
+  var lb=d.querySelector('.lightbox'), tiles=[].slice.call(d.querySelectorAll('.work')), cur=0;
+  if(lb&&lb.showModal){
+    var lbImg=lb.querySelector('img'), lbTitle=lb.querySelector('.lightbox-title'), lbCount=lb.querySelector('.lightbox-count');
+    var show=function(i){
+      cur=(i+tiles.length)%tiles.length; var a=tiles[cur];
+      lbImg.style.animation='none'; void lbImg.offsetWidth; lbImg.style.animation='';
+      lbImg.src=a.href; lbImg.width=a.dataset.w; lbImg.height=a.dataset.h; lbImg.alt=a.dataset.title;
+      lbTitle.textContent=a.dataset.title; lbCount.textContent=(cur+1)+' / '+tiles.length;
+    };
+    tiles.forEach(function(a,i){a.addEventListener('click',function(e){e.preventDefault();show(i);lb.showModal();});});
+    lb.querySelector('.lb-close').addEventListener('click',function(){lb.close();});
+    lb.querySelector('.lb-prev').addEventListener('click',function(){show(cur-1);});
+    lb.querySelector('.lb-next').addEventListener('click',function(){show(cur+1);});
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lightbox-stage'))lb.close();});
+    lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+    lb.addEventListener('close',function(){tiles[cur].focus();});
+  }
 
   // mobile menu
   var burger=d.querySelector('.burger');
@@ -927,12 +1092,12 @@ p,li,label,address,.lead{text-wrap:pretty}
 
   // forms -> send-form.php -> Telegram
   var MSG={
-    ok:"Grazie! Ti ricontatteremo al più presto.",
-    phone:"Inserisci un numero di telefono valido.",
-    name:"Inserisci il tuo nome.",
-    email:"Controlla l’indirizzo e‑mail.",
-    consent:"Serve il tuo consenso per inviare la richiesta.",
-    error:"Invio non riuscito. Chiamaci o scrivici su WhatsApp: +49 1521 3405131"
+    ok:"Vielen Dank! Wir melden uns so schnell wie möglich.",
+    phone:"Bitte geben Sie eine gültige Telefonnummer ein.",
+    name:"Bitte geben Sie Ihren Namen ein.",
+    email:"Bitte prüfen Sie die E‑Mail-Adresse.",
+    consent:"Bitte bestätigen Sie die Einwilligung.",
+    error:"Senden fehlgeschlagen. Rufen Sie uns an oder schreiben Sie per WhatsApp: +49 1521 3405131"
   };
   d.querySelectorAll('.js-form').forEach(function(form){
     var status=form.querySelector('.form-status');
@@ -942,7 +1107,7 @@ p,li,label,address,.lead{text-wrap:pretty}
     form.addEventListener('submit',function(e){
       e.preventDefault();
       var el=form.elements, full=form.dataset.source==='contact';
-      var data={source:form.dataset.source,lang:"it",page:location.pathname,
+      var data={source:form.dataset.source,lang:"de",page:location.pathname,
         phone:el.phone.value.trim(),website:el.website.value,
         name:full?el.name.value.trim():'',email:full?el.email.value.trim():'',
         service:full?el.service.value:'',message:full?el.message.value.trim():''};

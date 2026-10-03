@@ -4,7 +4,7 @@
 import puppeteer from 'puppeteer';
 
 const VERBOSE = process.argv.includes('--verbose');
-const PAGES = ['http://localhost:3000/', 'http://localhost:3000/de/'];
+const PAGES = ['http://localhost:3000/', 'http://localhost:3000/it/'];
 const DEVICES = [
   ['iPhone SE (1st)', 320, 568], ['Galaxy S8', 360, 740], ['iPhone SE', 375, 667], ['iPhone 12 mini', 375, 812],
   ['iPhone 14', 390, 844], ['Pixel 7', 393, 851], ['Galaxy S20 Ultra', 412, 915], ['iPhone 11', 414, 896],
@@ -84,7 +84,7 @@ for (const [name, w, h] of DEVICES) for (const url of PAGES) {
 
   const n = res.lonely.length + res.overlaps.length + res.escapes.length + (res.overflow > 0 ? 1 : 0);
   total += n;
-  const tag = `${name} ${w}×${h} ${url.endsWith('/de/') ? 'DE' : 'IT'}`;
+  const tag = `${name} ${w}×${h} ${url.endsWith('/it/') ? 'IT' : 'DE'}`;
   if (!n) console.log(`OK    ${tag}`);
   else {
     console.log(`ISSUE ${tag}: ${res.lonely.length} single-word lines, ${res.overlaps.length} overlaps, ${res.escapes.length} overflowing boxes${res.overflow > 0 ? `, page ${res.overflow}px too wide` : ''}`);

@@ -199,7 +199,7 @@ $SERVICES = [
     'tiles'      => 'Fliesenarbeiten',
     'plumbing'   => 'Sanitärinstallation',
     'demolition' => 'Abbrucharbeiten',
-    'rental'     => 'Wohnung für Neuvermietung',
+    'rental'     => 'Renovierung nach Auszug',
     'other'      => 'Sonstiges / Beratung',
 ];
 $serviceLabel = $SERVICES[$service] ?? '—';

@@ -16,3 +16,9 @@ TELEGRAM_SETUP.md
 GEMINI_IMAGE_GENERATION.md
 SKILL.md
 SKILL canvas.md
+
+# image generation logs
+gen/*.log
+
+# unrelated file, not part of this site
+health.png

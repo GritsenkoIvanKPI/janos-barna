@@ -2,13 +2,13 @@
 
 **Business:** Turnkey renovation of flats and houses (Komplettsanierung / ristrutturazioni chiavi in mano).
 **Goal:** Lead generation from paid advertising — structure optimised for conversion (enquiries by form, phone, WhatsApp).
-**Languages:** Italian (default, `/`) and German (`/de/`).
+**Languages:** German (main, `/`) and Italian (`/it/`) — main operations are in Germany.
 **Brand (from `logo.jpg`, the company sign):** dark theme — charcoal `#161615`/`#2A2A29`, champagne gold `#C8AE7A` (metallic `#F0DFB6 → #A38450`), brushed silver `#C0C2C3`.
 **Type:** Cinzel (Trajan-style serif, as on the sign) for headings and wordmark; Onest for body/UI.
 **Logo on site:** `logo.png` (transparent, supplied by client). Cut into `assets/logo/`: `emblem` + `wordmark` (side-by-side header lockup), `logo` (full stacked, footer), favicon / apple-touch-icon / `og.jpg` (social share).
 **Design reference:** `desktop.png` (handyman template) — layout, spacing and typography matched; blue/navy swapped for the logo's gold/charcoal/silver.
 **Copy source:** `Тексти janos varna.txt` (translated to IT/DE).
-**Media source:** `Фото/` only (real job-site photos + 3 WhatsApp videos).
+**Media:** real job-site photos from `Фото/` in the project gallery (12), testimonials, van/contact blocks and the site video; generated illustrations (`gen/`, Gemini) for hero, services, turnkey pair, benefits, steps and FAQ.
 
 ## Structure
 Hero (+ quick callback form) → Services → Portfolio → CTA / Why us → Benefits → About / how we work → Testimonials → FAQ → Enquiry form + contacts → Footer

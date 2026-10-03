@@ -2,6 +2,9 @@
 // Run: node build.mjs
 import fs from 'fs';
 
+// real pixel sizes of every image (written by prep_assets.py)
+const IMAGES = JSON.parse(fs.readFileSync('assets/img/manifest.json', 'utf8'));
+
 // Set the production domain once it is known — enables canonical + hreflang.
 const SITE_URL = '';
 
@@ -111,7 +114,7 @@ const CSS = `
 @media (min-width:1200px){:root{--section:160px;--gutter:100px;--edge:32px;--header:110px}}
 
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:24px;background:var(--bg)}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:calc(var(--header) + 16px);background:var(--bg)}
 body{margin:0;background:radial-gradient(1200px 700px at 85% -10%,rgba(200,174,122,.07),rgba(200,174,122,0) 70%),radial-gradient(900px 600px at -10% 40%,rgba(192,194,195,.04),rgba(192,194,195,0) 70%),var(--bg);
   color:var(--text);font-family:Onest,system-ui,sans-serif;font-size:16px;line-height:1.7;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;background-image:var(--grain);opacity:.045;pointer-events:none;z-index:100;mix-blend-mode:overlay}
@@ -140,8 +143,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 
 /* media treatment */
 .media{position:relative;overflow:hidden;background:var(--bg-3)}
-.media img,.media video{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.03)}
-.media::before{content:"";position:absolute;inset:0;background:#3a2f1c;mix-blend-mode:multiply;opacity:.22;z-index:1;pointer-events:none}
+.media img,.media video{width:100%;height:100%;object-fit:cover;filter:saturate(.94) contrast(1.02)}
+.media::before{content:"";position:absolute;inset:0;background:#3a2f1c;mix-blend-mode:multiply;opacity:.1;z-index:1;pointer-events:none}
 .media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,9,.6),rgba(10,10,9,0) 55%);z-index:1;pointer-events:none;opacity:.5}
 .media--dark::after{opacity:1}
 
@@ -193,7 +196,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 }
 
 /* header */
-.header{position:relative;z-index:50}
+.header{position:sticky;top:0;z-index:50}
+.header::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(22,22,21,.78);backdrop-filter:blur(16px) saturate(1.2);-webkit-backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid var(--line);opacity:0;transition:opacity .35s var(--ease-out)}
+.scrolled .header::before{opacity:1}
+@media (max-height:520px){.header{position:relative}}
 .header .container{display:flex;align-items:center;justify-content:space-between;height:var(--header);gap:var(--s-5)}
 .nav{display:none}
 .nav a{position:relative;white-space:nowrap;font-size:14px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--silver);padding:var(--s-2) 0;transition:color .2s}
@@ -243,7 +249,7 @@ button,input,select,textarea{font:inherit;color:inherit}
   height:calc(100vh - var(--header) - var(--s-3));height:calc(100svh - var(--header) - var(--s-3));min-height:460px}
 .hero-media{position:relative;flex:1 1 auto;min-height:0;border-radius:var(--r-lg)}
 .hero-media img{object-position:50% 62%}
-.hero-media::after{background:linear-gradient(to top,rgba(12,12,11,.88),rgba(12,12,11,.25) 60%,rgba(12,12,11,.1)),linear-gradient(to right,rgba(12,12,11,.45),rgba(12,12,11,0) 60%)}
+.hero-media::after{background:linear-gradient(to top,rgba(12,12,11,.86),rgba(12,12,11,.12) 58%,rgba(12,12,11,0)),linear-gradient(to right,rgba(12,12,11,.4),rgba(12,12,11,0) 55%)}
 .hero-content{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:var(--s-5);max-width:800px}
 @media (min-width:768px){.hero-content{padding:var(--s-7)}}
 .hero h1{font-size:min(var(--fs-h1),7.2vh);font-size:min(var(--fs-h1),7.2svh);line-height:1.1;color:var(--title);letter-spacing:-.01em;text-shadow:0 2px 30px rgba(0,0,0,.35)}
@@ -276,6 +282,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (max-width:1359px){.book > p{display:none}}
 @media (max-width:1359px) and (max-height:820px){.hero-content .btn{display:none}}
 @media (max-height:560px){.hero{min-height:360px}}
+@media (max-height:760px){.hero-tag{display:none}}
 @media (max-height:700px){.hero-content p{display:none}.quick-note{font-size:12px;line-height:1.4;margin-top:var(--s-2)}.quick{margin-top:var(--s-3)}}
 @media (min-width:1360px) and (max-height:760px){.book{padding-top:36px}.book > p{display:none}}
 /* short landscape phones: photo and quick-quote side by side */
@@ -289,6 +296,43 @@ button,input,select,textarea{font:inherit;color:inherit}
 .form-status{margin-top:var(--s-3);font-size:15px;font-weight:600}
 .form-status[data-state="ok"]{color:#8FD19E}
 .form-status[data-state="error"]{color:#F09A8E}
+
+/* trust bar */
+.trust{list-style:none;margin:var(--s-5) 0 0;padding:var(--s-4) 0;display:grid;gap:var(--s-3) var(--s-5);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media (min-width:640px){.trust{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1360px){.trust{grid-template-columns:auto auto auto auto;justify-content:space-between}}
+.trust li{display:flex;align-items:center;gap:var(--s-3);font-size:14px;font-weight:500;letter-spacing:.02em;color:var(--silver);line-height:1.4}
+.trust li b{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1;background:var(--metal-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.trust .icon{flex:none;width:18px;height:18px;color:var(--gold)}
+
+/* turnkey chain */
+.turnkey{display:grid;gap:var(--s-5);margin-top:var(--s-7);align-items:stretch}
+@media (min-width:560px){.turnkey{grid-template-columns:repeat(2,minmax(0,1fr))}.stages{grid-column:1/-1;grid-row:2}}
+@media (min-width:1360px){.turnkey{grid-template-columns:280px minmax(0,1fr) 280px;margin-top:var(--s-8)}.stages{grid-column:auto;grid-row:auto}}
+.turnkey-img{position:relative;margin:0;border-radius:var(--r-lg);aspect-ratio:16/10;box-shadow:var(--sh-float)}
+@media (min-width:560px){.turnkey-img{aspect-ratio:4/3}}
+@media (min-width:1360px){.turnkey-img{aspect-ratio:auto;min-height:420px}}
+.turnkey-img img{position:absolute;inset:0}
+@media (max-width:1359px){.turnkey-img img{object-position:30% 22%}}
+.hero-tag{display:flex;margin-bottom:var(--s-4)}
+.turnkey-img.media::after{opacity:1}
+.turnkey-img figcaption{position:absolute;z-index:2;left:var(--s-5);right:var(--s-5);bottom:var(--s-5)}
+.turnkey-img figcaption span{display:block;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-text)}
+.turnkey-img figcaption b{display:block;margin-top:var(--s-1);font-family:var(--serif);font-weight:600;font-size:22px;color:var(--title)}
+.stages{list-style:none;margin:0;padding:0;display:grid;gap:var(--s-3);align-content:center}
+@media (min-width:700px){.stages{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1024px) and (max-width:1359px){.stages{grid-template-columns:repeat(4,minmax(0,1fr))}.stage{flex-direction:column;align-items:flex-start;gap:var(--s-2)}}
+.stage{display:flex;align-items:center;gap:var(--s-4);padding:var(--s-4);border-radius:var(--r-md);background:var(--bg-2);border:1px solid var(--line);transition:transform .45s var(--ease-spring),border-color .3s}
+.stage:hover{transform:translateY(-3px);border-color:rgba(200,174,122,.4)}
+.stage-num{flex:none;font-family:var(--serif);font-weight:600;font-size:26px;line-height:1;min-width:1.5em;background:var(--metal-gold);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stage > div{min-width:0}
+.stage b{display:block;color:var(--title);font-weight:600;font-size:16px;line-height:1.3}
+.stage div span{display:block;font-size:14px;line-height:1.4}
+.stage--final{background:radial-gradient(120% 140% at 0% 0%,rgba(200,174,122,.2),rgba(200,174,122,0) 70%),var(--bg-2);border-color:rgba(200,174,122,.45)}
+.turnkey-facts{list-style:none;margin:var(--s-6) 0 0;padding:0;display:grid;gap:var(--s-3)}
+@media (min-width:1024px){.turnkey-facts{grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s-5)}}
+.turnkey-facts li{display:flex;align-items:center;gap:var(--s-3);padding:var(--s-4) var(--s-5);border-radius:var(--r-md);border:1px solid var(--line-2);color:var(--title);font-size:15px;font-weight:500;line-height:1.35}
+.turnkey-facts .icon{flex:none;width:20px;height:20px;color:var(--gold)}
 
 /* section heads */
 .head-split{display:grid;gap:var(--s-6);padding-bottom:var(--s-7);border-bottom:1px solid var(--line)}
@@ -314,22 +358,50 @@ button,input,select,textarea{font:inherit;color:inherit}
 .card .icon-chip{display:inline-grid;place-items:center;margin-top:auto;width:46px;height:46px;border-radius:50%;background:rgba(200,174,122,.1);border:1px solid rgba(200,174,122,.28);color:var(--gold);transition:transform .45s var(--ease-spring)}
 .card:hover .icon-chip{transform:rotate(-8deg) scale(1.08)}
 
-/* portfolio */
-.works{display:grid;gap:var(--s-6);margin-top:var(--s-7)}
-@media (min-width:640px){.works{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1024px){
-  .works{grid-template-columns:repeat(3,1fr);gap:var(--s-7);margin-top:var(--s-8)}
-}
-.work{position:relative;margin:0;aspect-ratio:4/5;border-radius:var(--r-md);box-shadow:var(--sh-float)}
-.work.media::after{opacity:1}
-.work img,.work video{transition:transform .9s var(--ease-out)}
-.work:hover img,.work:hover video{transform:scale(1.045)}
-.work figcaption{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:var(--s-5)}
-.work figcaption b{display:block;color:var(--title);font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.25}
-.work figcaption span{display:block;margin-top:var(--s-1);color:var(--gold-text);font-size:14px;letter-spacing:.04em}
-.work .live{position:absolute;z-index:2;top:var(--s-4);left:var(--s-4);display:inline-flex;align-items:center;gap:var(--s-2);padding:6px 12px;border-radius:999px;background:rgba(22,22,21,.72);border:1px solid var(--line-2);color:var(--title);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(8px)}
-.work .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 1.8s var(--ease-out) infinite}
+/* portfolio: bento gallery of real project photos + lightbox */
+.works{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px;grid-auto-flow:dense;gap:var(--s-3);margin-top:var(--s-7)}
+@media (min-width:640px){.works{grid-auto-rows:220px;gap:var(--s-4)}}
+@media (min-width:1024px){.works{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:230px;gap:var(--s-5);margin-top:var(--s-8)}}
+.work{position:relative;display:block;border-radius:var(--r-md);box-shadow:var(--sh-float);cursor:zoom-in;container-type:inline-size}
+.work--tall{grid-row:span 2}
+.work--wide{grid-column:span 2}
+.work--big{grid-column:span 2;grid-row:span 2}
+.work.media::after{opacity:.85;background:linear-gradient(to top,rgba(10,10,9,.85),rgba(10,10,9,0) 50%)}
+.work img{transition:transform .9s var(--ease-out)}
+.work:hover img,.work:focus-visible img{transform:scale(1.05)}
+.work:active img{transform:scale(1.02)}
+.work-cap{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:var(--s-4)}
+@media (min-width:1024px){.work-cap{padding:var(--s-5)}}
+.work-cap b{display:block;color:var(--title);font-family:var(--serif);font-size:clamp(12px,5.6cqi,19px);font-weight:600;line-height:1.25;white-space:nowrap}
+.work-cap span{display:block;margin-top:2px;color:var(--gold-text);font-size:clamp(11px,4.6cqi,14px);letter-spacing:.03em;white-space:nowrap}
+.work--wide .work-cap b,.work--big .work-cap b{font-size:clamp(14px,4.4cqi,22px)}
+.work--wide .work-cap span,.work--big .work-cap span{font-size:clamp(11px,3.2cqi,14px)}
+@container (max-width:215px){.work-cap{display:none}.work.media::after{opacity:.25}}
+.work-zoom{position:absolute;z-index:2;top:var(--s-4);right:var(--s-4);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(22,22,21,.6);border:1px solid var(--line-2);color:var(--gold-hi);backdrop-filter:blur(8px);opacity:0;transform:scale(.7);transition:opacity .3s var(--ease-out),transform .45s var(--ease-spring)}
+.work-zoom .icon{width:18px;height:18px}
+.work:hover .work-zoom,.work:focus-visible .work-zoom{opacity:1;transform:none}
+.work .live{position:absolute;z-index:2;top:var(--s-3);left:var(--s-3);display:inline-flex;align-items:center;gap:var(--s-2);padding:5px 10px;border-radius:999px;background:rgba(22,22,21,.72);border:1px solid var(--line-2);color:var(--title);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;backdrop-filter:blur(8px)}
+.work .live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.8s var(--ease-out) infinite}
 @keyframes pulse{0%{transform:scale(.8);opacity:1}70%{transform:scale(1.5);opacity:.35}100%{transform:scale(.8);opacity:1}}
+.lightbox{position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgba(10,10,9,.94);color:var(--title)}
+.lightbox::backdrop{background:rgba(10,10,9,.6)}
+.lightbox:not([open]){display:none}
+.lightbox-stage{position:absolute;inset:64px var(--s-4) 76px;display:grid;place-items:center}
+@media (min-width:768px){.lightbox-stage{inset:72px 96px 84px}}
+.lightbox-stage img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:var(--r-sm);box-shadow:0 30px 80px -20px rgba(0,0,0,.9);animation:lb-in .45s var(--ease-out)}
+@keyframes lb-in{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.lightbox-bar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;gap:var(--s-4);height:76px;padding:0 var(--s-4);text-align:center}
+.lightbox-title{font-family:var(--serif);font-size:17px}
+.lightbox-count{font-size:13px;letter-spacing:.14em;color:var(--gold-text)}
+.lightbox button{position:absolute;z-index:2;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:rgba(30,30,29,.8);color:var(--title);cursor:pointer;transition:transform .35s var(--ease-spring),border-color .2s}
+.lightbox button:hover{border-color:var(--gold);transform:scale(1.06)}
+.lightbox button:active{transform:scale(.94)}
+.lightbox button .icon{width:22px;height:22px}
+.lb-close{top:var(--s-3);right:var(--s-3)}
+.lb-prev,.lb-next{bottom:14px}
+.lb-prev{left:var(--s-3)}.lb-next{right:var(--s-3)}
+.lb-prev .icon{transform:rotate(180deg)}
+@media (min-width:768px){.lb-prev,.lb-next{top:50%;bottom:auto;margin-top:-24px}.lb-prev{left:var(--s-5)}.lb-next{right:var(--s-5)}.lb-close{top:var(--s-4);right:var(--s-5)}}
 .sites{margin-top:var(--s-8);padding:var(--s-5) var(--s-4);border-radius:var(--r-lg);background:var(--bg-2);border:1px solid var(--line)}
 @media (min-width:768px){.sites{padding:var(--s-7)}}
 .sites h3{font-size:22px}
@@ -403,6 +475,10 @@ button,input,select,textarea{font:inherit;color:inherit}
   transition:transform .45s var(--ease-spring),border-color .3s}
 @media (min-width:768px){.step{padding:var(--s-5) var(--s-6)}}
 .step:hover{transform:translateX(6px);border-color:rgba(200,174,122,.4)}
+.step-thumb{display:none;margin:0;width:96px;height:96px;border-radius:var(--r-sm);flex:none}
+@media (min-width:640px){.step{grid-template-columns:auto minmax(0,1fr) auto}.step-thumb{display:block}}
+.step-thumb img{transition:transform .9s var(--ease-out)}
+.step:hover .step-thumb img{transform:scale(1.06)}
 .step-num{font-family:var(--serif);font-weight:600;font-size:clamp(40px,4vw,56px);line-height:1;background:var(--metal-gold);-webkit-background-clip:text;background-clip:text;color:transparent;min-width:1.4em}
 .step h3{font-size:clamp(20px,1.8vw,24px);line-height:1.25}
 .step p{margin-top:var(--s-1);font-size:16px;line-height:1.55}
@@ -427,7 +503,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 .who div span{display:block;font-size:16px;line-height:1.3}
 
 /* faq */
-.faq{max-width:900px;margin:var(--s-7) auto 0;border-top:1px solid var(--line)}
+.faq-wrap{display:grid;gap:var(--s-6);margin-top:var(--s-7);align-items:start}
+@media (min-width:1024px){.faq-wrap{grid-template-columns:minmax(0,400px) minmax(0,1fr);gap:var(--s-8)}}
+.faq-media{margin:0;border-radius:var(--r-lg);aspect-ratio:16/9;box-shadow:var(--sh-float)}
+.faq-media img{object-position:50% 75%}
+@media (min-width:1024px){.faq-media{aspect-ratio:3/4;position:sticky;top:var(--s-5)}.faq-media img{object-position:50% 50%}}
+.faq{border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);padding:var(--s-5) 0;cursor:pointer;list-style:none;color:var(--title);font-weight:500;font-size:clamp(17px,1.5vw,20px);line-height:1.4;border-radius:var(--r-sm);transition:opacity .2s}
 .faq summary::-webkit-details-marker{display:none}
@@ -521,8 +602,6 @@ h1,h2,h3,h4,q,summary,figcaption,.work figcaption b,.stat span,.tag{text-wrap:ba
 p,li,label,address,.lead{text-wrap:pretty}
 
 /* titles inside cards size themselves to the card */
-.work{container-type:inline-size}
-.work figcaption b{font-size:clamp(14px,6cqi,21px)}
 .step > div{container-type:inline-size;min-width:0}
 .step h3{font-size:clamp(14px,6.8cqi,24px)}
 .feature > div{flex:1 1 0;container-type:inline-size;min-width:0}
@@ -573,6 +652,7 @@ p,li,label,address,.lead{text-wrap:pretty}
 .hero-content > *{animation:rise 1s var(--ease-out) both}
 .hero-content > :nth-child(2){animation-delay:.12s}
 .hero-content > :nth-child(3){animation-delay:.24s}
+.hero-content > :nth-child(4){animation-delay:.36s}
 @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -586,9 +666,13 @@ function page(lang) {
   const it = lang === 'it';
   const raw = (a, b) => (it ? a : b);
   const t = (a, b) => glue(raw(a, b));
-  const P = it ? '' : '../';
-  const img = (name, alt, sizes, eager = false) =>
-    `<img src="${P}assets/img/${name}-800.webp" srcset="${P}assets/img/${name}-800.webp 800w, ${P}assets/img/${name}-1600.webp 1600w" sizes="${sizes}" alt="${alt}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async">`;
+  // German is the main language at the site root; Italian lives in /it/
+  const P = it ? '../' : '';
+  const srcset = name => IMAGES[name].map(([w]) => `${P}assets/img/${name}-${w}.webp ${w}w`).join(', ');
+  const img = (name, alt, sizes, eager = false) => {
+    const [w, h] = IMAGES[name][0];
+    return `<img src="${P}assets/img/${name}-${w}.webp" srcset="${srcset(name)}" sizes="${sizes}" width="${w}" height="${h}" alt="${alt}"${eager ? ' fetchpriority="high"' : ' loading="lazy"'} decoding="async">`;
+  };
   const arrowBtn = (label, href, extra = '') =>
     `<a class="btn btn--gold ${extra}" href="${href}">${label}<span class="btn-dot">${icon('arrow')}</span></a>`;
   const waText = encodeURIComponent(raw('Buongiorno, vorrei un preventivo per una ristrutturazione.', 'Guten Tag, ich möchte ein Angebot für eine Renovierung.'));
@@ -611,29 +695,49 @@ function page(lang) {
     ['electric', 'svc-electric', 'bolt', t('Impianti elettrici', 'Elektroinstallation'),
       t('Nuove linee, prese e punti luce a norma.', 'Leitungen, Steckdosen und Licht – normgerecht.')],
     ['paint', 'svc-paint', 'roller', t('Pittura e carta da parati', 'Malerarbeiten & Tapeten'),
-      t('Pareti, porte e radiatori, posa della carta da parati.', 'Wände, Türen, Heizkörper streichen und tapezieren.')],
+      t('Pareti, porte e radiatori, posa della carta da parati.', 'Wände, Türen und Heizkörper streichen, Tapeten kleben.')],
     ['floor', 'svc-floor', 'layers', t('Laminato e battiscopa', 'Laminat und Sockelleisten'),
-      t('Posa di laminato con battiscopa e finiture pulite.', 'Laminat inklusive Sockelleisten und sauberer Abschlüsse.')],
+      t('Posa di laminato con battiscopa e finiture pulite.', 'Laminat verlegen – mit Sockelleisten und sauberen Abschlüssen.')],
     ['tiles', 'svc-tiles', 'tiles', t('Piastrellatura', 'Fliesenarbeiten'),
       t('Pavimenti e rivestimenti per bagni, cucine e corridoi.', 'Boden- und Wandfliesen für Bad, Küche und Flur.')],
     ['plumbing', 'svc-plumbing', 'drop', t('Impianti idraulici', 'Sanitärinstallation'),
       t('Tubazioni, scarichi, sanitari e allacciamenti.', 'Rohre, Abflüsse, Sanitärobjekte und Anschlüsse.')],
     ['demolition', 'svc-demolition', 'hammer', t('Demolizioni', 'Abbrucharbeiten'),
       t('Rimozione di pavimenti e tramezzi, macerie incluse.', 'Rückbau von Böden und Wänden, inkl. Entsorgung.')],
-    ['rental', 'svc-rental', 'home', t('Pronto per l’affitto', 'Bereit zur Vermietung'),
-      t('Appartamenti rimessi a nuovo dopo il cambio inquilino.', 'Wohnungen nach dem Auszug schnell wieder vermietbar.')],
+    ['rental', 'svc-rental', 'home', t('Pronto per l’affitto', 'Renovierung nach Auszug'),
+      t('Appartamenti rimessi a nuovo dopo il cambio inquilino.', 'Wohnungen schnell wieder bezugsfertig und vermietbar.')],
   ];
 
+  // the full turnkey chain, in working order
+  const stages = [
+    [t('Demolizione', 'Rückbau'), t('con smaltimento macerie', 'inklusive Entsorgung')],
+    [t('Impianto elettrico', 'Elektrik'), t('linee e prese', 'Leitungen und Steckdosen')],
+    [t('Idraulica', 'Sanitär'), t('tubazioni e sanitari', 'Rohre und Sanitärobjekte')],
+    [t('Piastrelle', 'Fliesen'), t('pavimenti e rivestimenti', 'Boden und Wand')],
+    [t('Pareti', 'Wände'), t('carta da parati e pittura', 'Tapezieren und Streichen')],
+    [t('Pavimenti', 'Böden'), t('laminato e battiscopa', 'Laminat und Sockelleisten')],
+    [t('Porte e radiatori', 'Türen und Heizkörper'), t('verniciatura e ferramenta', 'Lackierung und Beschläge')],
+    [t('Consegna', 'Übergabe'), t('pulizia finale e chiavi', 'Endreinigung und Schlüssel')],
+  ];
+
+  // real project photos; shape: '' (1×1), 'tall' (1×2), 'wide' (2×1), 'big' (2×2)
   const works = [
-    ['pf-bath', t('Ristrutturazione bagno', 'Badsanierung'), t('Piastrelle · Sanitari · Impianti', 'Fliesen · Sanitär · Elektrik')],
-    ['pf-shower', t('Doccia e rivestimenti', 'Dusche und Wandfliesen'), t('Piastrellatura · Idraulica', 'Fliesen · Sanitär')],
-    ['pf-progress', t('Bagno in lavorazione', 'Bad im Umbau'), t('Sanitari · Rivestimenti', 'Sanitär · Wandbelag'), true],
-    ['pf-tub', t('Bagno con vasca', 'Bad mit Wanne'), t('Rivestimenti · Sanitari', 'Fliesen · Sanitärobjekte')],
-    ['pf-electric', t('Impianto elettrico', 'Elektroinstallation'), t('Quadro contatori · Nuove linee', 'Zählerschrank · Neue Leitungen')],
-    ['pf-plumbing', t('Sanitari sospesi', 'Vorwandinstallation'), t('Idraulica · Predisposizione WC', 'Sanitär · WC-Vorwand')],
+    ['pf-living', 'big', t('Soggiorno ristrutturato', 'Wohnzimmer saniert'), t('Pareti · Laminato · Porte', 'Wände · Laminat · Türen')],
+    ['pf-bath', 'tall', t('Ristrutturazione bagno', 'Badsanierung'), t('Piastrelle · Sanitari', 'Fliesen · Sanitär')],
+    ['pf-walkin', 'tall', t('Doccia a filo', 'Bodengleiche Dusche'), t('Piastrelle · Idraulica', 'Fliesen · Sanitär')],
+    ['pf-room', 'tall', t('Camera rinnovata', 'Zimmer renoviert'), t('Pittura · Laminato', 'Malerarbeiten · Laminat')],
+    ['pf-progress', '', t('Bagno in lavorazione', 'Bad im Umbau'), t('Sanitari · Rivestimenti', 'Sanitär · Wandbelag'), true],
+    ['pf-tub', 'tall', t('Bagno con vasca', 'Bad mit Wanne'), t('Rivestimenti · Sanitari', 'Fliesen · Sanitärobjekte')],
+    ['pf-floor', 'tall', t('Pavimento del bagno', 'Badboden gefliest'), t('Piastrelle grandi', 'Großformat-Fliesen')],
+    ['pf-shower', '', t('Rivestimento doccia', 'Wandfliesen Dusche'), t('Piastrellatura', 'Fliesenarbeiten')],
+    ['pf-laminate', 'wide', t('Laminato e battiscopa', 'Laminat und Sockelleisten'), t('Pavimenti', 'Bodenbelag')],
+    ['pf-electric', 'tall', t('Impianto elettrico', 'Elektroinstallation'), t('Quadro contatori', 'Zählerschrank'), true],
+    ['pf-balcony', 'tall', t('Balcone rinnovato', 'Balkon saniert'), t('Rivestimento · Pittura', 'Beschichtung · Anstrich')],
+    ['pf-plumbing', 'wide', t('Sanitari sospesi', 'Vorwandinstallation'), t('Idraulica · WC sospeso', 'Sanitär · WC-Vorwand'), true],
   ];
 
-  const done = t('Completato', 'Fertig');
+
+  const done = t('Completato', 'Abgeschlossen');
   const sites = [
     ['Am Heller 6', t('2 appartamenti', '2 Wohnungen'), done, false],
     ['Sternbergstraße 83', t('Ristrutturazione', 'Sanierung'), done, false],
@@ -647,19 +751,19 @@ function page(lang) {
     [t('Quanto costa ristrutturare un appartamento?', 'Was kostet eine Renovierung?'),
       t('Il costo dipende dalla superficie, dallo stato dell’immobile e dalla quantità di lavori. Dopo il sopralluogo prepariamo un preventivo dettagliato e ti proponiamo la soluzione migliore.', 'Die Kosten hängen von der Wohnfläche, dem Zustand der Räume und dem Umfang der Arbeiten ab. Nach der Besichtigung erstellen wir ein detailliertes Angebot und schlagen Ihnen die passende Lösung vor.')],
     [t('Fate ristrutturazioni chiavi in mano?', 'Bieten Sie Renovierungen schlüsselfertig an?'),
-      t('Sì. Eseguiamo l’intero ciclo di lavori: demolizione, impianto elettrico, idraulica, piastrelle, carta da parati, tinteggiatura, laminato, sostituzione della ferramenta delle porte e pulizia finale.', 'Ja. Wir übernehmen alle Arbeiten: Rückbau, Elektrik, Sanitär, Fliesen, Tapeten, Malerarbeiten, Laminat, Austausch der Türbeschläge und die Endreinigung.')],
+      t('Sì. Eseguiamo l’intero ciclo di lavori: demolizione, impianto elettrico, idraulica, piastrelle, carta da parati, tinteggiatura, laminato, sostituzione della ferramenta delle porte e pulizia finale.', 'Ja. Wir übernehmen alle Arbeiten: Rückbau, Elektrik, Sanitär, Fliesen, Tapezieren, Malerarbeiten, Laminat, Austausch der Türbeschläge und Endreinigung.')],
     [t('In quali città lavorate?', 'In welchen Städten arbeiten Sie?'),
-      t('La nostra zona principale è Salzgitter, Braunschweig, Wolfsburg, Hannover e tutta la Bassa Sassonia. Su accordo lavoriamo anche in altre regioni della Germania.', 'Unser Haupteinsatzgebiet sind Salzgitter, Braunschweig, Wolfsburg, Hannover und ganz Niedersachsen. Nach Absprache arbeiten wir auch in anderen Regionen Deutschlands.')],
+      t('La nostra zona principale è Salzgitter, Braunschweig, Wolfsburg, Hannover e tutta la Bassa Sassonia. Su accordo lavoriamo anche in altre regioni della Germania.', 'Wir arbeiten hauptsächlich in Salzgitter, Braunschweig, Wolfsburg, Hannover und in ganz Niedersachsen. Nach Absprache arbeiten wir auch in anderen Regionen Deutschlands.')],
     [t('Vi occupate dell’acquisto dei materiali?', 'Kümmern Sie sich um den Materialeinkauf?'),
       t('Sì. Possiamo occuparci della scelta, dell’acquisto e della consegna dei materiali e di tutta la logistica.', 'Ja. Wir übernehmen Auswahl, Einkauf und Lieferung der Materialien sowie die gesamte Logistik.')],
     [t('Quanto dura una ristrutturazione?', 'Wie lange dauert eine Renovierung?'),
-      t('Dipende dalla superficie e dalla complessità dei lavori. I piccoli interventi si completano in pochi giorni; una ristrutturazione completa di un appartamento richiede di solito alcune settimane.', 'Das hängt von der Fläche und der Komplexität der Arbeiten ab. Kleinere Aufträge sind oft in wenigen Tagen erledigt, eine Komplettsanierung einer Wohnung dauert in der Regel einige Wochen.')],
+      t('Dipende dalla superficie e dalla complessità dei lavori. I piccoli interventi si completano in pochi giorni; una ristrutturazione completa di un appartamento richiede di solito alcune settimane.', 'Das hängt von der Fläche und vom Umfang der Arbeiten ab. Kleinere Aufträge sind oft in wenigen Tagen erledigt, eine Komplettsanierung einer Wohnung dauert in der Regel einige Wochen.')],
     [t('Il preventivo è gratuito?', 'Ist das Angebot kostenlos?'),
       t('Sì. Dopo il sopralluogo o dopo aver ricevuto le informazioni necessarie ti prepariamo un’offerta personalizzata.', 'Ja. Nach der Besichtigung oder nach Erhalt der nötigen Informationen erstellen wir Ihnen ein individuelles Angebot.')],
     [t('Offrite una garanzia sui lavori?', 'Gibt es eine Gewährleistung?'),
-      t('Sì. Rispondiamo della qualità dei lavori eseguiti secondo le norme vigenti e gli accordi presi con il cliente.', 'Ja. Wir stehen für die Qualität unserer Arbeiten ein – gemäß den geltenden Vorschriften und den Vereinbarungen mit dem Auftraggeber.')],
+      t('Sì. Rispondiamo della qualità dei lavori eseguiti secondo le norme vigenti e gli accordi presi con il cliente.', 'Ja. Wir stehen für die Qualität unserer Arbeit ein – nach den gesetzlichen Vorgaben und den Vereinbarungen mit dem Auftraggeber.')],
     [t('Lavorate con società immobiliari e amministratori?', 'Arbeiten Sie für Hausverwaltungen?'),
-      t('Sì. Abbiamo esperienza con società immobiliari, investitori e proprietari privati.', 'Ja. Wir haben Erfahrung in der Zusammenarbeit mit Wohnungsgesellschaften, Investoren und privaten Eigentümern.')],
+      t('Sì. Abbiamo esperienza con società immobiliari, investitori e proprietari privati.', 'Ja. Wir arbeiten regelmäßig für Hausverwaltungen, Wohnungsgesellschaften, Investoren und private Eigentümer.')],
     [t('Eseguite anche singoli lavori?', 'Übernehmen Sie auch einzelne Arbeiten?'),
       t('Sì. Puoi richiedere la ristrutturazione completa oppure singoli servizi: impianto elettrico, idraulica, piastrelle, tinteggiatura, carta da parati o posa del laminato.', 'Ja. Sie können eine Komplettsanierung oder einzelne Leistungen beauftragen: Elektrik, Sanitär, Fliesen, Malerarbeiten, Tapezieren oder Laminatverlegung.')],
     [t('Come si richiede una ristrutturazione?', 'Wie beauftrage ich eine Renovierung?'),
@@ -672,9 +776,9 @@ function page(lang) {
     'Komplettsanierung von Wohnungen und Häusern: Rückbau, Elektrik, Sanitär, Fliesen, Malerarbeiten, Laminat. Alles aus einer Hand, kostenloses Angebot. Salzgitter, Braunschweig, Wolfsburg, Hannover.');
 
   const seoLinks = SITE_URL
-    ? `<link rel="canonical" href="${SITE_URL}${it ? '/' : '/de/'}">
-<link rel="alternate" hreflang="it" href="${SITE_URL}/">
-<link rel="alternate" hreflang="de" href="${SITE_URL}/de/">
+    ? `<link rel="canonical" href="${SITE_URL}${it ? '/it/' : '/'}">
+<link rel="alternate" hreflang="de" href="${SITE_URL}/">
+<link rel="alternate" hreflang="it" href="${SITE_URL}/it/">
 <link rel="alternate" hreflang="x-default" href="${SITE_URL}/">`
     : '';
 
@@ -685,7 +789,7 @@ function page(lang) {
       ...(SITE_URL ? { logo: SITE_URL + '/assets/logo/logo.png', image: SITE_URL + '/assets/logo/og.jpg' } : {}),
       address: { '@type': 'PostalAddress', streetAddress: 'Martin-Luther-Straße 21', postalCode: '38226', addressLocality: 'Salzgitter', addressCountry: 'DE' },
       areaServed: ['Salzgitter', 'Braunschweig', 'Wolfsburg', 'Hannover', 'Niedersachsen'],
-      ...(SITE_URL ? { url: SITE_URL + (it ? '/' : '/de/') } : {}),
+      ...(SITE_URL ? { url: SITE_URL + (it ? '/it/' : '/') } : {}),
     },
     {
       '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -715,7 +819,7 @@ ${seoLinks}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="${P}assets/img/hero-1600.webp" imagesrcset="${P}assets/img/hero-800.webp 800w, ${P}assets/img/hero-1600.webp 1600w" imagesizes="100vw">
+<link rel="preload" as="image" href="${P}assets/img/hero-${IMAGES.hero[0][0]}.webp" imagesrcset="${srcset('hero')}" imagesizes="100vw">
 <style>${CSS}</style>
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head>
@@ -732,8 +836,8 @@ ${seoLinks}
     </nav>
     <div class="header-actions">
       <div class="lang" aria-label="${t('Lingua', 'Sprache')}">
-        <a href="${it ? 'index.html' : '../index.html'}" hreflang="it" lang="it"${it ? ' aria-current="page"' : ''}>IT</a>
-        <a href="${it ? 'de/index.html' : 'index.html'}" hreflang="de" lang="de"${it ? '' : ' aria-current="page"'}>DE</a>
+        <a href="${it ? '../index.html' : 'index.html'}" hreflang="de" lang="de"${it ? '' : ' aria-current="page"'}>DE</a>
+        <a href="${it ? 'index.html' : 'it/index.html'}" hreflang="it" lang="it"${it ? ' aria-current="page"' : ''}>IT</a>
       </div>
       ${arrowBtn(CTA, '#contatti')}
       <button class="burger" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="${t('Apri il menu', 'Menü öffnen')}">
@@ -752,10 +856,11 @@ ${seoLinks}
 <!-- HERO -->
 <section class="hero wide">
   <div class="hero-media media media--dark">
-    ${img('hero', t('Appartamento ristrutturato con pavimento in laminato', 'Renovierte Wohnung mit Laminatboden'), '100vw', true)}
+    ${img('hero', t('Soggiorno appena ristrutturato con pavimento in laminato', 'Frisch renoviertes Wohnzimmer mit Laminatboden'), '(min-width:1440px) 1240px, 100vw', true)}
     <div class="hero-content">
+      <span class="tag hero-tag">${t('Tutto da un’unica impresa', 'Alles aus einer Hand')}</span>
       <h1>${t('La tua casa<br><em>chiavi in mano</em>', 'Ihr Zuhause –<br><em>komplett saniert</em>')}</h1>
-      <p>${t('Appartamenti e case, dalla demolizione alla pulizia finale. Un unico referente, preventivi trasparenti, tempi rispettati.', 'Wohnungen und Häuser – vom Rückbau bis zur Endreinigung. Ein Ansprechpartner, transparente Preise, feste Termine.')}</p>
+      <p>${t('Dalla demolizione all’appartamento finito: un’impresa, un referente, un preventivo.', 'Vom Rückbau bis zur bezugsfertigen Wohnung: ein Betrieb, ein Ansprechpartner, ein Angebot.')}</p>
       ${arrowBtn(t('Richiedi un preventivo', 'Angebot anfordern'), '#contatti')}
     </div>
   </div>
@@ -773,6 +878,46 @@ ${seoLinks}
       <p class="quick-note">${t('Inviando il numero accetti di essere ricontattato riguardo alla tua richiesta.', 'Mit dem Absenden stimmen Sie zu, dass wir Sie zu Ihrer Anfrage kontaktieren.')}</p>
       <p class="form-status" role="status" aria-live="polite"></p>
     </form>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="container">
+  <ul class="trust reveal">
+    <li><b>10+</b><span>${t('anni di esperienza', 'Jahre Erfahrung')}</span></li>
+    <li>${icon('usercheck')}<span>${t('Tutti i lavori da un’unica impresa', 'Alle Gewerke aus einer Hand')}</span></li>
+    <li>${icon('receipt')}<span>${t('Sopralluogo e preventivo gratuiti', 'Besichtigung und Angebot kostenlos')}</span></li>
+    <li>${icon('pin')}<span>Salzgitter${NB}· Braunschweig · Wolfsburg${NB}· Hannover</span></li>
+  </ul>
+</div>
+
+<!-- TURNKEY: from demolition to finished flat -->
+<section class="section" id="chiavi-in-mano">
+  <div class="container">
+    <div class="center reveal">
+      <span class="tag">${t('Chiavi in mano', 'Schlüsselfertig')}</span>
+      <h2 class="h2">${t('Dalla demolizione alle chiavi', 'Vom Rückbau bis zur fertigen Wohnung')}</h2>
+      <p class="lead">${t('Incarichi una sola impresa: eseguiamo tutti i lavori nella sequenza giusta e ti consegniamo l’appartamento pronto da abitare.', 'Sie beauftragen einen einzigen Betrieb: Wir übernehmen alle Gewerke in der richtigen Reihenfolge und übergeben die Wohnung bezugsfertig.')}</p>
+    </div>
+    <div class="turnkey">
+      <figure class="turnkey-img media reveal">
+        ${img('turnkey-start', t('Stanza svuotata all’inizio dei lavori', 'Entkernter Raum zu Beginn der Arbeiten'), '(min-width:1024px) 300px, 100vw')}
+        <figcaption><span>${t('Inizio', 'Start')}</span><b>${t('Demolizione', 'Rückbau')}</b></figcaption>
+      </figure>
+      <ol class="stages reveal d1">
+        ${stages.map(([name, sub], i) => `<li class="stage${i === stages.length - 1 ? ' stage--final' : ''}"><span class="stage-num">${String(i + 1).padStart(2, '0')}</span><div><b>${name}</b><span>${sub}</span></div></li>`).join('\n        ')}
+      </ol>
+      <figure class="turnkey-img media reveal d2">
+        ${img('turnkey-end', t('La stessa stanza a lavori finiti', 'Derselbe Raum nach Abschluss der Arbeiten'), '(min-width:1024px) 300px, 100vw')}
+        <figcaption><span>${t('Risultato', 'Ergebnis')}</span><b>${t('Pronto da abitare', 'Bezugsfertig')}</b></figcaption>
+      </figure>
+    </div>
+    <ul class="turnkey-facts reveal">
+      <li>${icon('usercheck')}<span>${t('Un contratto, un referente', 'Ein Vertrag, ein Ansprechpartner')}</span></li>
+      <li>${icon('layers')}<span>${t('Materiali e logistica inclusi', 'Material und Logistik inklusive')}</span></li>
+      <li>${icon('clock')}<span>${t('Nessun coordinamento tra artigiani', 'Keine Abstimmung zwischen Handwerkern')}</span></li>
+    </ul>
+    <div class="cta-center reveal">${arrowBtn(CTA, '#contatti')}</div>
   </div>
 </section>
 
@@ -811,16 +956,15 @@ ${seoLinks}
       <p class="lead">${t('Foto reali dei nostri cantieri: appartamenti, case e bagni ristrutturati per privati, investitori e società immobiliari.', 'Echte Fotos von unseren Baustellen: renovierte Wohnungen, Häuser und Bäder.')}</p>
     </div>
     <div class="works">
-      ${works.map(([src, name, sub, live], i) => {
+      ${works.map(([src, shape, name, sub, live], i) => {
+        const full = IMAGES[src][IMAGES[src].length - 1];
         const badge = live ? `<span class="live">${t('Cantiere', 'Baustelle')}</span>` : '';
-        const inner = src.startsWith('video:')
-          ? `<video src="${P}assets/video/${src.slice(6)}.mp4" poster="${P}assets/video/${src.slice(6)}-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="${name}"></video><span class="live">${t('Cantiere', 'Baustelle')}</span>`
-          : img(src, name, '(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw') + badge;
-        return `<figure class="work media reveal d${i % 3}">${inner}<figcaption><b>${name}</b><span>${sub}</span></figcaption></figure>`;
+        const sizes = shape === 'big' || shape === 'wide' ? '(min-width:1024px) 620px, 100vw' : '(min-width:1024px) 300px, 50vw';
+        return `<a class="work media reveal${shape ? ' work--' + shape : ''}" href="${P}assets/img/${src}-${full[0]}.webp" data-w="${full[0]}" data-h="${full[1]}" data-title="${name}" aria-label="${name} – ${t('ingrandisci la foto', 'Foto vergrößern')}">${img(src, name, sizes)}${badge}<span class="work-cap"><b>${name}</b><span>${sub}</span></span><span class="work-zoom">${icon('plus')}</span></a>`;
       }).join('\n      ')}
     </div>
     <div class="sites reveal">
-      <h3>${t('Cantieri recenti', 'Aktuelle Objekte')}</h3>
+      <h3>${t('Cantieri recenti', 'Referenzobjekte')}</h3>
       <ul>
         ${sites.map(([addr, what, status, live]) => `<li>${icon('pin')}<div><b>${keep(addr)}</b><span>${what}</span></div><em${live ? ' class="is-live"' : ''}>${status}</em></li>`).join('\n        ')}
       </ul>
@@ -863,7 +1007,7 @@ ${seoLinks}
     </div>
     <div class="benefits reveal">
     <div class="benefits-media media">
-      ${img('benefits', t('Bagno ristrutturato con piastrelle bianche', 'Renoviertes Bad mit weißen Fliesen'), '(min-width:1300px) 1240px, 100vw')}
+      ${img('benefits', t('Due artigiani controllano il progetto in cantiere', 'Zwei Handwerker besprechen den Plan auf der Baustelle'), '(min-width:1300px) 1240px, 100vw')}
     </div>
       <div class="features">
         <div class="feature"><span class="ic">${icon('receipt')}</span><div><h3>${t('Preventivi trasparenti', 'Transparente Angebote')}</h3><p>${t('Dopo il sopralluogo ricevi un preventivo dettagliato, senza sorprese.', 'Nach der Besichtigung: ein klares Angebot ohne Überraschungen.')}</p></div></div>
@@ -883,7 +1027,7 @@ ${seoLinks}
         <span class="tag">${t('Chi siamo', 'Über uns')}</span>
         <h2 class="h2">${t('Ecco come lavoriamo', 'So arbeiten wir')}</h2>
       </div>
-      <p class="lead">${t('János Barna BAU è un’impresa edile di Salzgitter. Lavoriamo per società immobiliari, amministratori, investitori e privati e seguiamo ogni cantiere dall’inizio alla fine.', 'János Barna BAU ist ein Baubetrieb aus Salzgitter. Wir arbeiten für Wohnungsgesellschaften, Hausverwaltungen, Investoren und Privatkunden – vom ersten bis zum letzten Tag.')}</p>
+      <p class="lead">${t('János Barna BAU è un’impresa edile di Salzgitter. Lavoriamo per società immobiliari, amministratori, investitori e privati e seguiamo ogni cantiere dall’inizio alla fine.', 'János Barna BAU ist ein Baubetrieb aus Salzgitter. Wir arbeiten für Wohnungsgesellschaften, Hausverwaltungen, Investoren und Privatkunden und betreuen jede Baustelle von Anfang bis Ende.')}</p>
     </div>
     <div class="process">
       <figure class="process-video reveal">
@@ -895,9 +1039,9 @@ ${seoLinks}
       </figure>
       <div class="process-body">
         <ol class="steps">
-          <li class="step reveal"><span class="step-num">01</span><div><h3>${t('Contattaci', 'Kontakt aufnehmen')}</h3><p>${t('Telefono, WhatsApp o e-mail: raccontaci il tuo progetto.', 'Per Telefon, WhatsApp oder E-Mail – erzählen Sie uns von Ihrem Vorhaben.')}</p></div></li>
-          <li class="step reveal d1"><span class="step-num">02</span><div><h3>${t('Sopralluogo gratuito', 'Besichtigung & Angebot')}</h3><p>${t('Visioniamo l’immobile e prepariamo un preventivo gratuito.', 'Wir besichtigen das Objekt und erstellen ein kostenloses Angebot.')}</p></div></li>
-          <li class="step reveal d2"><span class="step-num">03</span><div><h3>${t('Lavoro finito!', 'Fertig renoviert!')}</h3><p>${t('Tutti i lavori, con materiali, logistica e pulizia finale.', 'Alle Arbeiten inklusive Material, Logistik und Endreinigung.')}</p></div></li>
+          <li class="step reveal"><span class="step-num">01</span><div><h3>${t('Contattaci', 'Kontakt aufnehmen')}</h3><p>${t('Telefono, WhatsApp o e-mail: raccontaci il tuo progetto.', 'Per Telefon, WhatsApp oder E-Mail – erzählen Sie uns von Ihrem Vorhaben.')}</p></div><figure class="step-thumb media">${img('step-1', t('Richiesta via smartphone', 'Anfrage per Smartphone'), '96px')}</figure></li>
+          <li class="step reveal d1"><span class="step-num">02</span><div><h3>${t('Sopralluogo gratuito', 'Besichtigung & Angebot')}</h3><p>${t('Visioniamo l’immobile e prepariamo un preventivo gratuito.', 'Wir besichtigen das Objekt und erstellen ein kostenloses Angebot.')}</p></div><figure class="step-thumb media">${img('step-2', t('Misurazione durante il sopralluogo', 'Aufmaß bei der Besichtigung'), '96px')}</figure></li>
+          <li class="step reveal d2"><span class="step-num">03</span><div><h3>${t('Lavoro finito!', 'Fertig renoviert!')}</h3><p>${t('Tutti i lavori, con materiali, logistica e pulizia finale.', 'Alle Arbeiten inklusive Material, Logistik und Endreinigung.')}</p></div><figure class="step-thumb media">${img('step-3', t('Consegna delle chiavi', 'Schlüsselübergabe'), '96px')}</figure></li>
         </ol>
         <div class="btn-row reveal">
           ${arrowBtn(CTA, '#contatti')}
@@ -917,7 +1061,7 @@ ${seoLinks}
     </div>
     <div class="reviews">
       <div class="review-row">
-        <div class="review-img media reveal">${img('review-1', t('Bagno ristrutturato', 'Renoviertes Bad'), '(min-width:1024px) 540px, 100vw')}</div>
+        <div class="review-img media reveal">${img('review-1', t('Bagno ristrutturato con piastrelle bianche', 'Saniertes Bad mit weißen Fliesen'), '(min-width:1024px) 540px, 100vw')}</div>
         <div class="review reveal d1">
           <blockquote><q>${t('Lavoro pulito e tempi rispettati', 'Saubere Arbeit, Termine eingehalten')}</q></blockquote>
           <p class="placeholder">${t('[Testo della recensione — sostituire con una recensione reale del cliente prima della pubblicazione.]', '[Platzhalter – durch eine echte Kundenbewertung ersetzen.]')}</p>
@@ -930,7 +1074,7 @@ ${seoLinks}
           <p class="placeholder">${t('[Testo della recensione — sostituire con una recensione reale del cliente prima della pubblicazione.]', '[Platzhalter – durch eine echte Kundenbewertung ersetzen.]')}</p>
           <div class="who"><span class="avatar">B</span><div><b>${t('Nome Cliente', 'Kundenname')}</b><span>Braunschweig</span></div></div>
         </div>
-        <div class="review-img media reveal d1">${img('review-2', t('Bagno con sanitari sospesi', 'Bad mit Wand-WC'), '(min-width:1024px) 540px, 100vw')}</div>
+        <div class="review-img media reveal d1">${img('review-2', t('Bagno con sanitari nuovi', 'Bad mit neuen Sanitärobjekten'), '(min-width:1024px) 540px, 100vw')}</div>
       </div>
     </div>
     <div class="cta-center reveal">${arrowBtn(CTA, '#contatti')}</div>
@@ -944,8 +1088,11 @@ ${seoLinks}
       <span class="tag">FAQ</span>
       <h2 class="h2">${t('Domande frequenti', 'Häufige Fragen')}</h2>
     </div>
-    <div class="faq reveal">
+    <div class="faq-wrap">
+    <figure class="faq-media media reveal">${img('faq', t('Artigiano che prende le misure per il preventivo', 'Handwerker notiert Maße für das Angebot'), '(min-width:1024px) 400px, 100vw')}</figure>
+    <div class="faq reveal d1">
       ${faq.map(([q, a], i) => `<details name="faq"${i === 0 ? ' open' : ''}><summary>${q}<span class="pm">${icon('plus')}</span></summary><p>${a}</p></details>`).join('\n      ')}
+    </div>
     </div>
   </div>
 </section>
@@ -1022,6 +1169,14 @@ ${seoLinks}
   </div>
 </footer>
 
+<dialog class="lightbox" aria-label="${t('Galleria progetti', 'Projektgalerie')}">
+  <div class="lightbox-stage"><img alt=""></div>
+  <div class="lightbox-bar"><span class="lightbox-title"></span><span class="lightbox-count"></span></div>
+  <button class="lb-close" type="button" aria-label="${t('Chiudi', 'Schließen')}">${icon('close')}</button>
+  <button class="lb-prev" type="button" aria-label="${t('Foto precedente', 'Vorheriges Foto')}">${icon('arrow')}</button>
+  <button class="lb-next" type="button" aria-label="${t('Foto successiva', 'Nächstes Foto')}">${icon('arrow')}</button>
+</dialog>
+
 <nav class="action-bar" aria-label="${t('Contatto rapido', 'Schnellkontakt')}">
   <a href="${PHONE_HREF}">${icon('phone')}${t('Chiama', 'Anrufen')}</a>
   <a href="${WA_HREF}" target="_blank" rel="noopener">${icon('whatsapp')}WhatsApp</a>
@@ -1031,6 +1186,29 @@ ${seoLinks}
 (function(){
   var d=document, root=d.documentElement;
   root.classList.add('js');
+
+  // header gets its glass background once the page is scrolled
+  var onScroll=function(){root.classList.toggle('scrolled',window.scrollY>8);};
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+
+  // project gallery lightbox
+  var lb=d.querySelector('.lightbox'), tiles=[].slice.call(d.querySelectorAll('.work')), cur=0;
+  if(lb&&lb.showModal){
+    var lbImg=lb.querySelector('img'), lbTitle=lb.querySelector('.lightbox-title'), lbCount=lb.querySelector('.lightbox-count');
+    var show=function(i){
+      cur=(i+tiles.length)%tiles.length; var a=tiles[cur];
+      lbImg.style.animation='none'; void lbImg.offsetWidth; lbImg.style.animation='';
+      lbImg.src=a.href; lbImg.width=a.dataset.w; lbImg.height=a.dataset.h; lbImg.alt=a.dataset.title;
+      lbTitle.textContent=a.dataset.title; lbCount.textContent=(cur+1)+' / '+tiles.length;
+    };
+    tiles.forEach(function(a,i){a.addEventListener('click',function(e){e.preventDefault();show(i);lb.showModal();});});
+    lb.querySelector('.lb-close').addEventListener('click',function(){lb.close();});
+    lb.querySelector('.lb-prev').addEventListener('click',function(){show(cur-1);});
+    lb.querySelector('.lb-next').addEventListener('click',function(){show(cur+1);});
+    lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lightbox-stage'))lb.close();});
+    lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
+    lb.addEventListener('close',function(){tiles[cur].focus();});
+  }
 
   // mobile menu
   var burger=d.querySelector('.burger');
@@ -1105,7 +1283,12 @@ ${seoLinks}
 `;
 }
 
-fs.mkdirSync('de', { recursive: true });
-fs.writeFileSync('index.html', page('it'));
-fs.writeFileSync('de/index.html', page('de'));
-console.log('Built index.html, de/index.html');
+// German pages use German section anchors (#kontakt instead of #contatti …)
+const DE_IDS = { 'chiavi-in-mano': 'schluesselfertig', servizi: 'leistungen', progetti: 'projekte', perche: 'warum-wir', vantaggi: 'vorteile', 'chi-siamo': 'ueber-uns', recensioni: 'bewertungen', contatti: 'kontakt' };
+const germanIds = html => Object.entries(DE_IDS).reduce((h, [a, b]) => h.replaceAll(`id="${a}"`, `id="${b}"`).replaceAll(`href="#${a}"`, `href="#${b}"`), html);
+
+fs.mkdirSync('it', { recursive: true });
+fs.rmSync('de', { recursive: true, force: true }); // old location of the German page
+fs.writeFileSync('index.html', germanIds(page('de')));
+fs.writeFileSync('it/index.html', page('it'));
+console.log('Built index.html (DE), it/index.html (IT)');
